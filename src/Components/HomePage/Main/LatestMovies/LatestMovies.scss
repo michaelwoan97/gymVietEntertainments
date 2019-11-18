@@ -1,0 +1,37 @@
+.latestMovies{
+    width:100vw;
+    .progress-bar{
+        &::before{
+            content: 'bitch!';
+            color:rgba(0,0,0,0);
+            background-color:#2980b9;
+            width:20vw;
+            height:10px;
+            border-radius:10px;
+            position: absolute;
+        }
+    }
+    .imageMovies{
+        background-image: url('../../../../Images/sonTung.jpg');
+        background-size:cover;
+        background-position:center;
+        filter: brightness(55%);
+        height:25rem;
+        position: relative;
+        z-index:-9999;
+    }
+    .infoMovies{
+        position: absolute;
+        top:12rem;
+        z-index: 1;
+        h1{
+            padding: 0 0 2.5rem 0;
+        }
+        p{
+            font-size:1.4rem;
+        }
+        .fas .fa-heart{
+            color: red;
+        }
+    }
+}

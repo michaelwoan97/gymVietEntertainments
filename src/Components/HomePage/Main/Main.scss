@@ -1,0 +1,29 @@
+main{
+    .categoryMovies{
+        background-color:#0A072C;
+    }
+    .categoryMovies__titles{
+        padding:2rem 0;
+    }
+    .infoMovies__titles{
+        font-size:1.2rem;
+        margin:0.5rem 0;
+    }
+    .infoMovies__categories{
+        color: rgba(255,255,255,0.7);
+    }
+    .button{
+        text-align:center;
+        .button__movies{
+            margin:2.5rem 1rem;
+            padding:1rem 3rem;
+            background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);/***************/
+            background-size: 400%;
+            border-radius: 30px;
+            border:none;
+        }
+        .button__tvShow{
+            @extend .button__movies;
+        }
+    }
+}

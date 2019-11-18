@@ -4,13 +4,13 @@ import './PopularMovies.scss';
 export const PopularMovies= props =>{
     return(
         <section>
-                <h2>POPULAR</h2>
+                <h2 className='categoryMovies__titles'>POPULAR</h2>
                 {props.PopularMovies.map( item =>{
                     return(
-                        <section>
+                        <section >
                                 <img src={item.imageMovies} />
-                                <p>{item.nameMovies}</p>
-                                <span>{item.categoryMovies}</span>
+                                <p className='infoMovies__titles'>{item.nameMovies}</p>
+                                <span className='infoMovies__categories'>{item.categoryMovies}</span>
                         </section>
                     );
                 })}
