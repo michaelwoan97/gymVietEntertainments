@@ -1,9 +1,55 @@
 main{
     .categoryMovies{
+        
+        padding-bottom:3rem;
+        .carouselMovies{
+            display:grid;
+            grid-template-columns: 0px repeat(3, 1fr) 0px;
+            border-bottom: 1px solid grey;
+            padding-bottom:1rem;
+            .containerImages{
+                width:40vw;
+                height:15vh;
+                overflow: hidden;
+                
+                img{ 
+                    max-width:20rem;
+                    height:auto;
+                }
+            }
+            button{
+                color:#3498db;
+                font-size:4rem;
+                margin-top:-10rem;
+                background-color:rgba(0,0,0,0);
+                border:none;
+            }
+            .fa-angle-left{
+                position:absolute;
+                left:0;
+                z-index: 1;
+                grid-column-start: 1;
+                grid-column-end:5;
+            }
+            .fa-angle-right{
+                position:absolute;
+                right:0;
+            }
+            .infoMovies{
+                margin:0 0.4rem;
+                text-align:center;
+                filter:brightness(70%);
+                position: relative;
+                right:10px;
+            }
+        
+        }
+    }
+    .categoryMovies{
         background-color:#0A072C;
     }
     .categoryMovies__titles{
-        padding:2rem 0;
+        padding:1rem 0 2rem 0;
     }
     .infoMovies__titles{
         font-size:1.2rem;

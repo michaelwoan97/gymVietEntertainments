@@ -1,5 +1,19 @@
 footer{
     background-color:black;
+    display: flex;
+    align-items: center;
+    padding:1rem 0;
+    .copyRight{
+        flex-basis:50vw;
+    }
+    .socialMedia{
+        text-align:center;
+        flex-basis:50vw;
+        font-size:2rem;
+        a{
+            margin:0 0.2rem;
+        }
+    }
     p{
         color:rgba(255,255,255,0.8);
     }

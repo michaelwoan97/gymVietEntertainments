@@ -1,5 +1,6 @@
 import React from 'react';
 import './LatestMovies.scss';
+// import sonTung from '../../../../Images/sonTung.jpg'
 
 export const LatestMovies= props =>{
     return(
@@ -8,7 +9,7 @@ export const LatestMovies= props =>{
 
             </section>
             <section className='imageMovies'>
-
+                    {/* <img src={sonTung} alt='Chang trai nam ay'/> */}
             </section>
             <section className='infoMovies'>
                 <h1 className='categoryMovies__titles'>Latest</h1>
