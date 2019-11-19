@@ -1,62 +1,6 @@
 main{
-    .categoryMovies{
-        
-        padding-bottom:3rem;
-        .carouselMovies{
-            display:grid;
-            grid-template-columns: 0px repeat(3, 1fr) 0px;
-            border-bottom: 1px solid grey;
-            padding-bottom:1rem;
-            .containerImages{
-                width:40vw;
-                height:15vh;
-                overflow: hidden;
-                
-                img{ 
-                    max-width:20rem;
-                    height:auto;
-                }
-            }
-            button{
-                color:#3498db;
-                font-size:4rem;
-                margin-top:-10rem;
-                background-color:rgba(0,0,0,0);
-                border:none;
-            }
-            .fa-angle-left{
-                position:absolute;
-                left:0;
-                z-index: 1;
-                grid-column-start: 1;
-                grid-column-end:5;
-            }
-            .fa-angle-right{
-                position:absolute;
-                right:0;
-            }
-            .infoMovies{
-                margin:0 0.4rem;
-                text-align:center;
-                filter:brightness(70%);
-                position: relative;
-                right:10px;
-            }
-        
-        }
-    }
-    .categoryMovies{
+    .movies{
         background-color:#0A072C;
-    }
-    .categoryMovies__titles{
-        padding:1rem 0 2rem 0;
-    }
-    .infoMovies__titles{
-        font-size:1.2rem;
-        margin:0.5rem 0;
-    }
-    .infoMovies__categories{
-        color: rgba(255,255,255,0.7);
     }
     .button{
         text-align:center;
@@ -72,4 +16,56 @@ main{
             @extend .button__movies;
         }
     }
+    .categoryMovies{
+        .categoryMovies__titles{
+            padding:1rem 0 2rem 0;
+        }
+        .categoryMoviesCarousel{
+            .carouselMovies{
+                display:grid;
+                grid-template-columns:repeat(3, 1fr);
+                grid-template-rows: 18rem ;
+                grid-column-gap: 10px;
+                .containerImages{
+                    width:40vw;
+                    height:20vh;
+                    overflow: hidden;
+                    
+                    img{ 
+                        height:20rem;
+                        width:auto;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                }
+                .infoMovies{
+                    text-align:center;
+                    filter:brightness(70%);
+                    display:grid;
+                    .infoMovies__titles{
+                        font-size:1.2rem;
+                        margin:0.5rem 0;
+                    }
+                    .infoMovies__categories{
+                        color: rgba(255,255,255,0.7);
+                    }
+                }
+            }
+        
+            .fa-angle-left{
+                position:absolute;
+                left:0;
+                z-index:1;
+                margin-top:4rem;
+            }
+            .fa-angle-right{
+                position:absolute;
+                right:0;
+                z-index:1;
+            }
+            
+        
+        }
+    }
+    
 }

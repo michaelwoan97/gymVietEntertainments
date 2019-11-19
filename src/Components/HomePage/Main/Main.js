@@ -44,7 +44,7 @@ class Main extends React.Component {
         return(
             <main>
                     <LatestMovies />
-                    <section className='categoryMovies'>
+                    <section className='movies'>
                         <section className='button'>
                                     <button className='button__movies' type='button'>MOVIES</button>
                                     <button className='button__tvShow' type='button'>TV SHOW</button>
