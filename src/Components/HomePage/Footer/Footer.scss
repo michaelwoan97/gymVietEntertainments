@@ -2,9 +2,10 @@ footer{
     background-color:black;
     display: flex;
     align-items: center;
-    padding:1rem 0;
+    padding:2rem 0;
     .copyRight{
         flex-basis:50vw;
+        padding-left:1rem;
     }
     .socialMedia{
         text-align:center;

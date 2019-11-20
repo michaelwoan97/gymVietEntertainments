@@ -1,6 +1,8 @@
 main{
+    
     .movies{
         background-color:#0A072C;
+        
     }
     .button{
         text-align:center;
@@ -18,54 +20,73 @@ main{
     }
     .categoryMovies{
         .categoryMovies__titles{
-            padding:1rem 0 2rem 0;
+            padding:0 0 2rem 0;
+            margin:0 0;
         }
         .categoryMoviesCarousel{
+            padding-left:1rem;
+            display:grid;
+            grid-template-rows: 1fr 1px 6rem;
+            grid-row-gap:10px;
             .carouselMovies{
+            
                 display:grid;
                 grid-template-columns:repeat(3, 1fr);
                 grid-template-rows: 18rem ;
                 grid-column-gap: 10px;
+                
                 .containerImages{
                     width:40vw;
                     height:20vh;
                     overflow: hidden;
-                    
                     img{ 
                         height:20rem;
                         width:auto;
-                        margin-left: auto;
-                        margin-right: auto;
+                    }
+                    .w3-container{
+                        margin-top:1rem;
+                        border:1px solid rgba(0,0,0,0.2);
+                        background-color:rgba(0,0,0,0.5);
+                        border-radius: 10px;
+                        left:0.2rem;
                     }
                 }
                 .infoMovies{
                     text-align:center;
                     filter:brightness(70%);
                     display:grid;
+    
                     .infoMovies__titles{
                         font-size:1.2rem;
-                        margin:0.5rem 0;
                     }
                     .infoMovies__categories{
                         color: rgba(255,255,255,0.7);
                     }
                 }
             }
-        
-            .fa-angle-left{
-                position:absolute;
-                left:0;
-                z-index:1;
-                margin-top:4rem;
+            .categoryMovies__seperator{
+                background-image: radial-gradient(circle, rgba(210, 208, 208, 0.7) 0%, rgba(210, 208, 208, 0) 90%);
+                height:0.2rem;
             }
-            .fa-angle-right{
-                position:absolute;
-                right:0;
-                z-index:1;
+            .swipeWraper{
+                    width:100vw;
+                    display:flex;
+                    justify-content: space-between;
+                    // grid-row-start:1;
+                    // grid-row-end:5;
+                    z-index:5;
+                    button{
+                        background-color: rgba(0,0,0,0);
+                        border:none;
+                        position: relative;
+                        bottom:17rem;
+                        z-index:10;
+                    i{
+                        color:#3498db;
+                        font-size:7rem;
+                    }         
+                }
             }
-            
-        
         }
-    }
-    
+    } 
 }
