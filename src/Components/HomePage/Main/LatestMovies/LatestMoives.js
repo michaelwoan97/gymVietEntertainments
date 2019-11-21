@@ -13,7 +13,7 @@ export const LatestMovies= props =>{
             </section>
             <section className='infoMovies'>
                 <h1 className='categoryMovies__titles'>Latest</h1>
-                <p className='infoMovies__titles'>Generation Iron</p>
+                <p className='infoMovies__titles'>{props.latestMovie.title}</p>
                 <span className='infoMovies__categories'>Sports, Documentation | </span>
                 <span><i className='fas fa-heart' style={{ color: '	#e31b23'}}></i>100000 </span>
                 <span><span className="glyphicon glyphicon-time" style={{ color: '#3498db'}}></span>95mins</span>

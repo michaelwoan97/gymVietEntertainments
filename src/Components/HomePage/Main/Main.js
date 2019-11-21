@@ -24,6 +24,7 @@ class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state={
+            UpcomingMovies1:[],
             UpcomingMovies: [
                 {nameMovies: 'Never Give Up', categoryMovies: 'Sport / documentation', imageMovies: terminator},
                 {nameMovies: 'Never Give Up', categoryMovies: 'Sport / documentation', imageMovies: AvengerEndgame},
@@ -42,14 +43,19 @@ class Main extends React.Component {
         };
     }
 
-    componentWillMount() {
-        const latestMovie=movieDatabases.fetch();
+    componentDidMount() {
+        movieDatabases.fetch().then(res =>{
+            this.setState({
+                UpcomingMovies1: res
+            })
+        });
+       
     }
 
     render() {
         return(
             <main>
-                    <LatestMovies />
+                    <LatestMovies latestMovie={this.state.UpcomingMovies1}/>
                     <section className='movies'>
                         <section className='button'>
                                     <button className='button__movies' type='button'>MOVIES</button>
