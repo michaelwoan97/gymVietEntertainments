@@ -3,9 +3,11 @@ footer{
     display: flex;
     align-items: center;
     padding:2rem 0;
+    // justify-content: center;
     .copyRight{
-        flex-basis:50vw;
-        padding-left:1rem;
+        flex-basis:60vw;
+        padding-left:2rem;
+        
     }
     .socialMedia{
         text-align:center;

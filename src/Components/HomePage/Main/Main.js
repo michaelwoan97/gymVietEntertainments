@@ -1,4 +1,5 @@
 import React from 'react';
+import { movieDatabases } from '../Util/Tmdb';
 import { LatestMovies } from './LatestMovies/LatestMoives';
 import { UpcomingMovies } from './UpcomingMovies/UpcomingMovies';
 import { PopularMovies } from './PopularMovies/PopularMovies';
@@ -40,6 +41,11 @@ class Main extends React.Component {
             ]
         };
     }
+
+    componentWillMount() {
+        const latestMovie=movieDatabases.fetch();
+    }
+
     render() {
         return(
             <main>
