@@ -13,9 +13,9 @@ const apiKey='f2e86216544164cf2009c966946ce960' ;
 // }
 
 export const movieDatabases={
-    fetch: async() =>{
+    fetch: async url =>{
         try{
-            const response=await fetch(`https://api.themoviedb.org/3/movie/latest?api_key=${apiKey}&language=en-US`);
+            const response=await fetch(url);
             if(response.ok){
                 console.log(response);
                 const jsonResponse= await response.json();

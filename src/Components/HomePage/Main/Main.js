@@ -24,7 +24,8 @@ class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            UpcomingMovies1:[],
+            LatestMovies:[],
+            LatestMovies2:[],
             UpcomingMovies: [
                 {nameMovies: 'Never Give Up', categoryMovies: 'Sport / documentation', imageMovies: terminator},
                 {nameMovies: 'Never Give Up', categoryMovies: 'Sport / documentation', imageMovies: AvengerEndgame},
@@ -44,18 +45,26 @@ class Main extends React.Component {
     }
 
     componentDidMount() {
-        movieDatabases.fetch().then(res =>{
+        const apiKey='f2e86216544164cf2009c966946ce960' ;
+        movieDatabases.fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`).then(res =>{
             this.setState({
-                UpcomingMovies1: res
+                LatestMovies: res.results[0]
+                // LatestMovies: res.results
+            })
+        });
+        movieDatabases.fetch(`https://api.themoviedb.org/3/movie/475557/images?api_key=${apiKey}&language=en-US`).then(res =>{
+            this.setState({
+                LatestMovies2: res
             })
         });
        
     }
 
     render() {
+        
         return(
             <main>
-                    <LatestMovies latestMovie={this.state.UpcomingMovies1}/>
+                    <LatestMovies LatestMovies={this.state.LatestMovies}/>
                     <section className='movies'>
                         <section className='button'>
                                     <button className='button__movies' type='button'>MOVIES</button>
