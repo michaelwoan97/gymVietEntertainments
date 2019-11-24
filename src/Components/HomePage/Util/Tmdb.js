@@ -17,7 +17,6 @@ export const movieDatabases={
         try{
             const response=await fetch(url);
             if(response.ok){
-                console.log(response);
                 const jsonResponse= await response.json();
                 console.log(jsonResponse);
                 return jsonResponse;

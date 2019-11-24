@@ -25,12 +25,8 @@ class Main extends React.Component {
         super(props);
         this.state={
             LatestMovies:[],
-            LatestMovies2:[],
-            UpcomingMovies: [
-                {nameMovies: 'Never Give Up', categoryMovies: 'Sport / documentation', imageMovies: terminator},
-                {nameMovies: 'Never Give Up', categoryMovies: 'Sport / documentation', imageMovies: AvengerEndgame},
-                {nameMovies: 'Never Give Up', categoryMovies: 'Sport / documentation', imageMovies: fast7},
-            ],
+            // LatestMovies2:[],
+            UpcomingMovies: [],
             PopularMovies: [
                 {nameMovies: 'Never Give Up', categoryMovies: 'Sport / documentation', imageMovies: sonTung},
                 {nameMovies: 'Never Give Up', categoryMovies: 'Sport / documentation', imageMovies: fast6},
@@ -49,14 +45,30 @@ class Main extends React.Component {
         movieDatabases.fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`).then(res =>{
             this.setState({
                 LatestMovies: res.results[0]
-                // LatestMovies: res.results
             })
         });
-        movieDatabases.fetch(`https://api.themoviedb.org/3/movie/475557/images?api_key=${apiKey}&language=en-US`).then(res =>{
+        
+        movieDatabases.fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1`).then(res =>{
             this.setState({
-                LatestMovies2: res
+                UpcomingMovies: [res.results[0],res.results[1],res.results[2]]
             })
         });
+
+        movieDatabases.fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`).then(res =>{
+            this.setState({
+                PopularMovies: [res.results[0],res.results[1],res.results[2]]
+            })
+        });
+        movieDatabases.fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`).then(res =>{
+            this.setState({
+                TopRatedMovies: [res.results[0],res.results[1],res.results[2]]
+            })
+        });
+        // movieDatabases.fetch(`https://api.themoviedb.org/3/movie/475557/images?api_key=${apiKey}&language=en-US`).then(res =>{
+        //     this.setState({
+        //         LatestMovies2: res
+        //     })
+        // });
        
     }
 

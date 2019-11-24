@@ -41,8 +41,8 @@ main{
                     height:20vh;
                     overflow: hidden;
                     img{ 
-                        height:20rem;
-                        width:auto;
+                        max-width:100%;
+                        height: auto;
                     }
                     .w3-container{
                         margin-top:1rem;

@@ -16,10 +16,10 @@ export const PopularMovies= props =>{
                                     return(
                                         <section className='infoMovies'>
                                                 <section className='w3-display-container w3-text-white containerImages'>
-                                                        <img src={item.imageMovies} />
+                                                        <img src={`https://image.tmdb.org/t/p/original/${item.poster_path}`} />
                                                         <section className="w3-display-topleft w3-container"><span>FHD</span></section>
                                                 </section>
-                                                <p className='infoMovies__titles'>{item.nameMovies}</p>
+                                                <p className='infoMovies__titles'>{item.title}</p>
                                                 <span className='infoMovies__categories'>{item.categoryMovies}</span>
                                         </section>
                                     );

@@ -1,7 +1,11 @@
 header{
+    background-color:black;
+    text-align:right;
     nav{
+        width:100vw;
+        position: fixed;
         i{
-            float: right;
+            
             font-size:3rem !important;
         }
     }
