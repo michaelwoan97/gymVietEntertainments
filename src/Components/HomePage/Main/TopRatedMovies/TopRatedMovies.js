@@ -12,9 +12,9 @@ export const TopRatedMovies= props =>{
                 <section className='categoryMoviesCarousel'>
                   
                         <section className='carouselMovies'>
-                                {props.TopRatedMovies.map( item =>{
+                                {props.TopRatedMovies.map( (item,i) =>{
                                     return(
-                                        <section className='infoMovies'>
+                                        <section id='visibilityInfoMovies' className='infoMovies' key={`Movie_`+i}>
                                                 <section className='w3-display-container w3-text-white containerImages'>
                                                         <img src={`https://image.tmdb.org/t/p/original/${item.poster_path}`} />
                                                         <section className="w3-display-topleft w3-container"><span >Ep 10</span></section>

@@ -4,18 +4,7 @@ import { LatestMovies } from './LatestMovies/LatestMoives';
 import { UpcomingMovies } from './UpcomingMovies/UpcomingMovies';
 import { PopularMovies } from './PopularMovies/PopularMovies';
 import { TopRatedMovies } from './TopRatedMovies/TopRatedMovies';
-import terminator from '../../../Images/terminator.jpeg';
-import coleman from '../../../Images/coleman.jpg';
-import AvengerEndgame from '../../../Images/AvengerEndgame.jpeg';
-import fast7 from '../../../Images/fast7.jpg';
-import fast6 from '../../../Images/fast6.jpg';
-import gfg from '../../../Images/gfg.jpg';
-import sonTung from '../../../Images/sonTung.jpg';
-import ironMan from '../../../Images/ironMan.jpg';
-import panda from '../../../Images/panda.jpeg';
-import rushHour from '../../../Images/rushHour.jpg';
-import nwa from '../../../Images/nwa.jpeg';
-import hulk from '../../../Images/hulk.jpg';
+
 
 
 import './Main.scss';
@@ -24,24 +13,22 @@ class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state={
+            genreMovies: [],
             LatestMovies:[],
-            // LatestMovies2:[],
             UpcomingMovies: [],
-            PopularMovies: [
-                {nameMovies: 'Never Give Up', categoryMovies: 'Sport / documentation', imageMovies: sonTung},
-                {nameMovies: 'Never Give Up', categoryMovies: 'Sport / documentation', imageMovies: fast6},
-                {nameMovies: 'Never Give Up', categoryMovies: 'Sport / documentation', imageMovies: gfg},
-            ],
-            TopRatedMovies: [
-                {nameMovies: 'Never Give Up', categoryMovies: 'Sport / documentation', imageMovies: ironMan},
-                {nameMovies: 'Never Give Up', categoryMovies: 'Sport / documentation', imageMovies: coleman},
-                {nameMovies: 'Never Give Up', categoryMovies: 'Sport / documentation', imageMovies: panda},
-            ]
+            PopularMovies: [],
+            TopRatedMovies: []
         };
     }
 
     componentDidMount() {
         const apiKey='f2e86216544164cf2009c966946ce960' ;
+        movieDatabases.fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&&language=en-US`).then(res =>{
+            this.setState({
+                genreMovies: res.genres
+            })
+        });
+
         movieDatabases.fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`).then(res =>{
             this.setState({
                 LatestMovies: res.results[0]
@@ -50,33 +37,36 @@ class Main extends React.Component {
         
         movieDatabases.fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1`).then(res =>{
             this.setState({
-                UpcomingMovies: [res.results[0],res.results[1],res.results[2]]
+                UpcomingMovies: res.results
             })
         });
 
         movieDatabases.fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`).then(res =>{
             this.setState({
-                PopularMovies: [res.results[0],res.results[1],res.results[2]]
+                PopularMovies: res.results
             })
         });
+
         movieDatabases.fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`).then(res =>{
             this.setState({
-                TopRatedMovies: [res.results[0],res.results[1],res.results[2]]
+                TopRatedMovies: res.results
             })
         });
-        // movieDatabases.fetch(`https://api.themoviedb.org/3/movie/475557/images?api_key=${apiKey}&language=en-US`).then(res =>{
-        //     this.setState({
-        //         LatestMovies2: res
-        //     })
-        // });
+
+      
        
+    }
+
+    handleHidden() {
+
     }
 
     render() {
         
         return(
             <main>
-                    <LatestMovies LatestMovies={this.state.LatestMovies}/>
+                    <LatestMovies LatestMovies={this.state.LatestMovies}
+                                    genreMovies={this.state.genreMovies}/>
                     <section className='movies'>
                         <section className='button'>
                                     <button className='button__movies' type='button'>MOVIES</button>

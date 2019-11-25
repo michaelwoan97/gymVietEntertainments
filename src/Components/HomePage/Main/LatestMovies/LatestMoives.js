@@ -3,6 +3,7 @@ import './LatestMovies.scss';
 // import sonTung from '../../../../Images/sonTung.jpg'
 
 export const LatestMovies= props =>{
+
     
     return(
         <section className="latestMovies">
@@ -17,7 +18,15 @@ export const LatestMovies= props =>{
                         <h1 className='categoryMovies__titles'>Latest</h1>
                         {/* <p className='infoMovies__titles'>Joker</p> */}
                         <p className='infoMovies__titles'>{props.LatestMovies.title}</p>
-                        <span className='infoMovies__categories'>Sports, Documentation | </span>
+                        <span className='infoMovies__categories'> {props.LatestMovies.genre} | </span>
+                         {/* {props.genreMovies.map(genre =>{
+                           genreMovie.map( movie =>{
+                                if(genre.id === movie.id){
+                                    return <span>{genre.name}</span>
+                                }
+                            })
+                           
+                        })} */}
                         <span><i className='fas fa-heart' style={{ color: '	#e31b23'}}></i>100000 </span>
                         <span><span className="glyphicon glyphicon-time" style={{ color: '#3498db'}}></span>95mins</span>
                     </section>

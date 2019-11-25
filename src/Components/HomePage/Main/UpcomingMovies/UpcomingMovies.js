@@ -12,15 +12,15 @@ export const UpcomingMovies= props =>{
                 <section className='categoryMoviesCarousel'>
     
                         <section className='carouselMovies'>
-                                {props.UpcomingMovies.map( item =>{
+                                {props.UpcomingMovies.map( (item,i) =>{
                                     return(
-                                        <section className='infoMovies'>
+                                        <section id='visibilityInfoMovies' className='infoMovies' key={`Movie_`+i}>
                                             <section className='w3-display-container w3-text-white containerImages'>
                                                         <img src={`https://image.tmdb.org/t/p/original/${item.poster_path}`} />
                                                         <section className="w3-display-topleft w3-container"><span>HD</span></section>
                                                 </section>
                                                 <p className='infoMovies__titles'>{item.title}</p>
-                                                <span className='infoMovies__categories'>{item.categoryMovies}</span>
+                                                <span className='infoMovies__categories'>{item.genre_ids}</span>
                                                 
                                         </section>
                                     );

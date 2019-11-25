@@ -52,6 +52,11 @@ main{
                         left:0.2rem;
                     }
                 }
+                #visibilityInfoMovies{
+                    &:nth-child(n+4){
+                        display: none;
+                    }
+                }
                 .infoMovies{
                     text-align:center;
                     filter:brightness(65%);
