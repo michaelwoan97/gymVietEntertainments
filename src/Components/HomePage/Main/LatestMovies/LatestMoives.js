@@ -3,7 +3,16 @@ import './LatestMovies.scss';
 // import sonTung from '../../../../Images/sonTung.jpg'
 
 export const LatestMovies= props =>{
-    
+    const movieGenre=[];
+    const movieGenre2=[];
+    // props.genreMovies.map(item =>{
+    //     props.LatestMovies.map(num =>{
+    //         if(num.genre_ids===item.id){
+    //             movieGenre2.push(item.name);
+    //         }
+    //     })
+    // })
+    // console.log(movieGenre2);
     return(
         <section className="latestMovies">
             <section className='carouselLatestMovies'>
@@ -19,26 +28,25 @@ export const LatestMovies= props =>{
                                     <p className='infoMovies__titles'>{movie.title}</p>
                                     
                                     {/* {props.genreMovies.map(genre =>{
-                                        //  return <span className='infoMovies__categories'>  | </span>;
+                    
                                        movie.genre_ids.map( item =>{
-                                           if(item.id === genre.id){
-                                               item.push(genre.name);
-                                               
+                                           if(item === genre.id){
+                                               movieGenre.push(genre.name);
                                            } 
                                        })
-                                       return <span className='infoMovies__categories'>  | </span>;
+                                       return <span className='infoMovies__categories'> {movieGenre} | </span>;
                                     })} */}
                                     {movie.genre_ids.map(item =>{
                                         //  return <span className='infoMovies__categories'>  | </span>;
+                                        const movieGenre=[];
                                        props.genreMovies.map( genre =>{
-                                           if(genre.id === item.id){
-                                               item.push(genre.name);
-        
-                                           } 
+                                           if(genre.id === item){
+                                               movieGenre.push(genre.name);
+                                           }
                                        })
-                                       console.log(item);
-                                       return <span className='infoMovies__categories'> {item.name} | </span>;
+                                        return <span className='infoMovies__categories'> {movieGenre} | </span>;
                                     })}
+                                   
                                     <span><i className='fas fa-heart' style={{ color: '	#e31b23'}}></i>100000 </span>
                                     <span><span className="glyphicon glyphicon-time" style={{ color: '#3498db'}}></span>95mins</span>
                                 </section>
