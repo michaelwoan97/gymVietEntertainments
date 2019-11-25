@@ -31,7 +31,7 @@ class Main extends React.Component {
 
         movieDatabases.fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`).then(res =>{
             this.setState({
-                LatestMovies: res.results[0]
+                LatestMovies: res.results
             })
         });
         

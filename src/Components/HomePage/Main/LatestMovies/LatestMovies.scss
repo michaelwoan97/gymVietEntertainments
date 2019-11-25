@@ -1,42 +1,46 @@
 .latestMovies{
     width:100vw;
-    .w3-display-container{
-        .progress-bar{
-            &::before{
-                content: 'bitch!';
-                color:rgba(0,0,0,0);
-                background-color:#2980b9;
-                width:20vw;
-                height:10px;
-                border-radius:2px;
-                position: absolute;
-    
+    .carouselLatestMovies{
+        .w3-display-container{
+            &:nth-child(n+2){
+                display: none;
             }
-        }
+            .progress-bar{
+                &::before{
+                    content: 'bitch!';
+                    color:rgba(0,0,0,0);
+                    background-color:#2980b9;
+                    width:20vw;
+                    height:10px;
+                    border-radius:2px;
+                    position: absolute;
         
-        .imageMovies{
-            background-image: url('https://image.tmdb.org/t/p/original/qdfARIhgpgZOBh3vfNhWS4hmSo3.jpg');
-            background-size:cover;
-            background-repeat: no-repeat;
-            background-position:center;
-            filter: brightness(30%);
-            height:30rem;
-            position: relative;
-            z-index:-9999;
+                }
+            }
             
-        }
-        .infoMovies{
-            padding: 1rem 0.5rem;
-            h1{
-                padding: 0 0 2rem 0;
+            .imageMovies{
+                background-size:cover;
+                background-repeat: no-repeat;
+                background-position:center;
+                filter: brightness(30%);
+                height:30rem;
+                position: relative;
+                z-index:-9999;
+                
             }
-            p{
-                font-size:1.8rem;
-            }
-            span{
-                font-size:1rem;
-                .fas .fa-heart{
-                    color: red;
+            .infoMovies{
+                padding: 1rem 0.5rem;
+                h1{
+                    padding: 0 0 2rem 0;
+                }
+                p{
+                    font-size:1.8rem;
+                }
+                span{
+                    font-size:1rem;
+                    .fas .fa-heart{
+                        color: red;
+                    }
                 }
             }
         }
