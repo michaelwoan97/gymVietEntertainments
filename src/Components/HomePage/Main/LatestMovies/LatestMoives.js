@@ -3,13 +3,14 @@ import './LatestMovies.scss';
 // import sonTung from '../../../../Images/sonTung.jpg'
 
 export const LatestMovies= props =>{
-    const movieGenre=[];
-    const movieGenre2=[];
+    
+    // const movieGenre2=[];
     // props.genreMovies.map(item =>{
     //     props.LatestMovies.map(num =>{
     //         if(num.genre_ids===item.id){
     //             movieGenre2.push(item.name);
     //         }
+    //         console.log(num.genre_ids);
     //     })
     // })
     // console.log(movieGenre2);
@@ -46,6 +47,8 @@ export const LatestMovies= props =>{
                                        })
                                         return <span className='infoMovies__categories'> {movieGenre} | </span>;
                                     })}
+                                    
+                                   
                                    
                                     <span><i className='fas fa-heart' style={{ color: '	#e31b23'}}></i>100000 </span>
                                     <span><span className="glyphicon glyphicon-time" style={{ color: '#3498db'}}></span>95mins</span>

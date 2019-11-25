@@ -17,7 +17,7 @@ class Main extends React.Component {
             LatestMovies:[],
             UpcomingMovies: [],
             PopularMovies: [],
-            TopRatedMovies: []
+            TopRatedMovies: [],
         };
     }
 
@@ -72,7 +72,8 @@ class Main extends React.Component {
                                     <button className='button__movies' type='button'>MOVIES</button>
                                     <button className='button__tvShow' type='button'>TV SHOW</button>
                             </section>
-                            <UpcomingMovies  UpcomingMovies={this.state.UpcomingMovies}/> 
+                            <UpcomingMovies  UpcomingMovies={this.state.UpcomingMovies}
+                                                genreMovies={this.state.genreMovies}/> 
                             <PopularMovies PopularMovies={this.state.PopularMovies}/>
                             <TopRatedMovies TopRatedMovies={this.state.TopRatedMovies}/>
                     </section>
