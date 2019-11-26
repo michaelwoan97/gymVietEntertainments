@@ -37,9 +37,12 @@
                     font-size:1.8rem;
                 }
                 .infoMovies__categories{
-                    &:nth-child(n+5){
-                        display: none;
+                    span{
+                        &:nth-child(n+4){
+                            display: none;
+                        }
                     }
+                    
                 }
                 span{
                     font-size:1rem;

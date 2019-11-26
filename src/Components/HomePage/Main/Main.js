@@ -13,7 +13,6 @@ class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            genreMovies: [],
             LatestMovies:[],
             UpcomingMovies: [],
             PopularMovies: [],
@@ -23,12 +22,6 @@ class Main extends React.Component {
 
     componentDidMount() {
         const apiKey='f2e86216544164cf2009c966946ce960' ;
-        movieDatabases.fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&&language=en-US`).then(res =>{
-            this.setState({
-                genreMovies: res.genres
-            })
-        });
-
         movieDatabases.fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`).then(res =>{
             this.setState({
                 LatestMovies: res.results
@@ -65,15 +58,13 @@ class Main extends React.Component {
         
         return(
             <main>
-                    <LatestMovies LatestMovies={this.state.LatestMovies}
-                                    genreMovies={this.state.genreMovies}/>
+                    <LatestMovies LatestMovies={this.state.LatestMovies}/>
                     <section className='movies'>
                         <section className='button'>
                                     <button className='button__movies' type='button'>MOVIES</button>
                                     <button className='button__tvShow' type='button'>TV SHOW</button>
                             </section>
-                            <UpcomingMovies  UpcomingMovies={this.state.UpcomingMovies}
-                                                genreMovies={this.state.genreMovies}/> 
+                            <UpcomingMovies  UpcomingMovies={this.state.UpcomingMovies}/> 
                             <PopularMovies PopularMovies={this.state.PopularMovies}/>
                             <TopRatedMovies TopRatedMovies={this.state.TopRatedMovies}/>
                     </section>

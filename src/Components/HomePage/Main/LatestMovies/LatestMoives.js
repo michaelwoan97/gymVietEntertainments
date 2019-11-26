@@ -3,21 +3,26 @@ import './LatestMovies.scss';
 // import sonTung from '../../../../Images/sonTung.jpg'
 
 export const LatestMovies= props =>{
-    
-    // const movieGenre2=[];
-    // props.genreMovies.map(item =>{
-    //     props.LatestMovies.map(num =>{
-    //         if(num.genre_ids===item.id){
-    //             movieGenre2.push(item.name);
-    //         }
-    //         console.log(num.genre_ids);
-    //     })
-    // })
-    // console.log(movieGenre2);
+    const apiKey='f2e86216544164cf2009c966946ce960' ;
+    const movieDatabase={
+        fetch: async movieId =>{
+            try{
+                const response=await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`);
+                if(response.ok){
+                    const jsonResponse= await response.json();
+                    console.log(jsonResponse);
+                    return jsonResponse;
+                } else { 
+                    throw new Error('Request Failed!');
+                }
+            } catch(error) {
+                console.log(error);
+            }
+        }
+    };
     return(
         <section className="latestMovies">
             <section className='carouselLatestMovies'>
-            
             {props.LatestMovies.map( movie =>{
                 return(
                     <section className='w3-display-container'>
@@ -27,31 +32,13 @@ export const LatestMovies= props =>{
                             <section className='infoMovies w3-display-bottomleft '>
                                     <h1 className='categoryMovies__titles'>Latest</h1>
                                     <p className='infoMovies__titles'>{movie.title}</p>
-                                    
-                                    {/* {props.genreMovies.map(genre =>{
-                    
-                                       movie.genre_ids.map( item =>{
-                                           if(item === genre.id){
-                                               movieGenre.push(genre.name);
-                                           } 
-                                       })
-                                       return <span className='infoMovies__categories'> {movieGenre} | </span>;
-                                    })} */}
-                                    {movie.genre_ids.map(item =>{
-                                        //  return <span className='infoMovies__categories'>  | </span>;
-                                        const movieGenre=[];
-                                       props.genreMovies.map( genre =>{
-                                           if(genre.id === item){
-                                               movieGenre.push(genre.name);
-                                           }
-                                       })
-                                        return <span className='infoMovies__categories'> {movieGenre} | </span>;
-                                    })}
+                                    <span className='infoMovies__categories'> {movie.release_date} | </span>
+                                    {/* <span className='infoMovies__categories'> {movieDatabase.fetch(movie.id).then()} | </span> */}
                                     
                                    
                                    
-                                    <span><i className='fas fa-heart' style={{ color: '	#e31b23'}}></i>100000 </span>
-                                    <span><span className="glyphicon glyphicon-time" style={{ color: '#3498db'}}></span>95mins</span>
+                                    <span><i className='fas fa-heart' style={{ color: '	#e31b23'}}></i>{movie.popularity} </span>
+                                    <span><span className="material-icons" style={{ color: '#3498db'}}>language</span>{movie.original_language}</span>
                                 </section>
                         </section>      
                 );

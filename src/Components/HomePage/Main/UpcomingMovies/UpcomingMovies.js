@@ -20,7 +20,7 @@ export const UpcomingMovies= props =>{
                                                         <section className="w3-display-topleft w3-container"><span>HD</span></section>
                                                 </section>
                                                 <p className='infoMovies__titles'>{item.title}</p>
-                                                <span className='infoMovies__categories'>{item.genre_ids}</span>
+                                                <span className='infoMovies__categories'>{item.release_date}|</span>
                                                 
                                         </section>
                                     );
