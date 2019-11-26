@@ -61,7 +61,8 @@ main{
                     text-align:center;
                     filter:brightness(65%);
                     display:grid;
-                    grid-template-rows: 1fr 2rem 3rem;
+                    grid-template-rows: 0.5fr 3rem 3rem;
+                  
                     .infoMovies__titles{
                         font-size:1.2rem;
                     }

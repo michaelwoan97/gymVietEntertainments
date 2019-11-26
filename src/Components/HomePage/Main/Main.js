@@ -12,8 +12,10 @@ import './Main.scss';
 class Main extends React.Component {
     constructor(props) {
         super(props);
+        this.handleGenre=this.handleGenre.bind(this);
         this.state={
             LatestMovies:[],
+            movieList:[],
             UpcomingMovies: [],
             PopularMovies: [],
             TopRatedMovies: [],
@@ -22,12 +24,26 @@ class Main extends React.Component {
 
     componentDidMount() {
         const apiKey='f2e86216544164cf2009c966946ce960' ;
+        const movieGenre=[];
         movieDatabases.fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`).then(res =>{
             this.setState({
-                LatestMovies: res.results
+                LatestMovies: res.results,
+             
             })
         });
-        
+        // movieDatabases.fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`).then(res =>{
+        //     res.results.map(movie =>{
+        //         movieDatabases.fetchList(movie.id,apiKey).then(data =>{
+        //             movieGenre.push(data);
+        //         });
+                
+        //     })
+        //     this.setState({
+        //         movieList: movieGenre
+        //     })
+        //     console.log(this.state.movieList)
+        // });
+
         movieDatabases.fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1`).then(res =>{
             this.setState({
                 UpcomingMovies: res.results
@@ -46,19 +62,19 @@ class Main extends React.Component {
             })
         });
 
-      
-       
     }
 
-    handleHidden() {
-
+    handleGenre(movieId,apiKey) {
+        movieDatabases.fetchList(movieId,apiKey);
     }
 
+   
     render() {
-        
         return(
             <main>
-                    <LatestMovies LatestMovies={this.state.LatestMovies}/>
+                    <LatestMovies LatestMovies={this.state.LatestMovies} 
+                                handleGenre={this.handleGenre}
+                                movieList={this.state.movieList}/>
                     <section className='movies'>
                         <section className='button'>
                                     <button className='button__movies' type='button'>MOVIES</button>
