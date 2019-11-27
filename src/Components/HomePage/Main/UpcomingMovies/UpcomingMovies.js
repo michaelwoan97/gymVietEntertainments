@@ -32,15 +32,17 @@ export const UpcomingMovies= props =>{
                                         </section>
                                     );
                                 })}
+                                
                             </section>
-                        <span className='categoryMovies__seperator'></span>
+                        
                         
                         <section className='swipeWraper'>
                                 <button><i className='fas fa-angle-left'></i></button>
                                 <button><i className='fas fa-angle-right'></i></button>
                             </section>
-                       
+                        <span className='categoryMovies__seperator'></span>
                     </section>
+                    
         </section>
     );
 }
