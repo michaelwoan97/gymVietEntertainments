@@ -18,7 +18,6 @@ export const movieDatabases={
             const response=await fetch(url);
             if(response.ok){
                 const jsonResponse= await response.json();
-           
                 return jsonResponse;
             } else { 
                 throw new Error('Request Failed!');

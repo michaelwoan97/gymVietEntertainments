@@ -24,11 +24,16 @@ class Main extends React.Component {
 
     componentDidMount() {
         const apiKey='f2e86216544164cf2009c966946ce960' ;
-        const movieGenre=[];
+        // const movieGenre=[];
         movieDatabases.fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`).then(res =>{
             this.setState({
                 LatestMovies: res.results,
              
+            })
+        });
+        movieDatabases.fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`).then(res =>{
+            this.setState({
+                movieList: res.genres
             })
         });
         // movieDatabases.fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`).then(res =>{
@@ -43,7 +48,6 @@ class Main extends React.Component {
         //     })
         //     console.log(this.state.movieList)
         // });
-
         movieDatabases.fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1`).then(res =>{
             this.setState({
                 UpcomingMovies: res.results
@@ -68,13 +72,23 @@ class Main extends React.Component {
         movieDatabases.fetchList(movieId,apiKey);
     }
 
+    // handleGenres() {
+    //     const apiKey='f2e86216544164cf2009c966946ce960' ;
+    //     const movieList= [];
+    //     this.state.LatestMovies.forEach(movie =>{
+    //         this.state.movieList.map(data=>{
+                
+    //         })
+    //     });
+    //     console.log(movieList)
+    // }
    
     render() {
         return(
             <main>
-                    <LatestMovies LatestMovies={this.state.LatestMovies} 
-                                handleGenre={this.handleGenre}
-                                movieList={this.state.movieList}/>
+                    <LatestMovies movieList={this.state.movieList} LatestMovies={this.state.LatestMovies} 
+                                    handleGenre={this.handleGenre}
+                                    />
                     <section className='movies'>
                         <section className='button'>
                                     <button className='button__movies' type='button'>MOVIES</button>

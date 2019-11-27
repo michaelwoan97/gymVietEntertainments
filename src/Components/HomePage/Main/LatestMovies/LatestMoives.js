@@ -12,6 +12,7 @@ export const LatestMovies= props =>{
     //     })
     // });
     // console.log(movieList)
+    
     return(
         <section className="latestMovies">
             <section className='carouselLatestMovies'>
