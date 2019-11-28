@@ -27,14 +27,14 @@ main{
         .categoryMoviesCarousel{
             padding-left:1rem;
             display:grid;
-            grid-template-rows: 1fr 0px 4rem;
+            grid-template-rows: 1fr 3px 4rem;
             // grid-template-rows: 17rem ;
             grid-row-gap:5px;
+            overflow: hidden;
             .carouselMovies{
-            
                 display:grid;
                 grid-template-columns:repeat(3, 1fr);
-                grid-template-rows: 19rem ;
+                grid-template-rows: 20rem ;
                 grid-column-gap: 10px;
                 
                 .containerImages{
@@ -71,6 +71,12 @@ main{
                         color: rgba(255,255,255,0.7);
                         
                     }
+                    span{
+                        .fa-star{
+                            margin-left:5px;
+                        }
+                    }
+                    
                 }
             }
             .categoryMovies__seperator{

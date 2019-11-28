@@ -27,7 +27,7 @@ export const LatestMovies= props =>{
                                     <p className='infoMovies__titles'>{movie.title}</p>
                                     <span className='infoMovies__categories'> {movie.release_date} | </span>
                                     <span><i className='fas fa-heart' style={{ color: '	#e31b23'}}></i>{movie.popularity} </span>
-                                    <span> <i className='far fa-thumbs-up' style={{ color: '#3498db'}}></i>{movie.vote_count}</span>
+                                    <span> <i className='fa fa-star' style={{ color: '#fed330'}}></i>{movie.vote_average}</span>
                                 </section>
                         </section>      
                 );

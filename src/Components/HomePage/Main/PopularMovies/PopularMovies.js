@@ -23,9 +23,9 @@ export const PopularMovies= props =>{
                                                         </section>
                                                 </section>
                                                 <p className='infoMovies__titles'>{item.title}</p>
-                                                <span>
+                                                <span >
                                                     <i className='fas fa-heart' style={{ color: '	#e31b23'}}></i>{item.popularity} 
-                                                    <i className='far fa-thumbs-up' style={{ color: '#3498db'}}></i>{item.vote_count} 
+                                                    <i className='fa fa-star' style={{ color: '#fed330'}}></i>{item.vote_average} 
                                                 </span>
                                                 
                                         </section>
