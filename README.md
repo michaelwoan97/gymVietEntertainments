@@ -6,13 +6,14 @@ React application to browse your favorite Movies, TV shows, and actors.
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-##Prerequisites
+## Prerequisites
+
 What things you need to install the software and how to install them
     npm
 
     npm install@latest -g
 
-##Installing
+## Installing
 
 1.Clone the repo
 
