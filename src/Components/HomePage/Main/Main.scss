@@ -34,7 +34,7 @@ main{
             .carouselMovies{
                 display:grid;
                 grid-template-columns:repeat(3, 1fr);
-                grid-template-rows: 20rem ;
+                // grid-template-rows: 20rem ;
                 grid-column-gap: 10px;
                 
                 .containerImages{

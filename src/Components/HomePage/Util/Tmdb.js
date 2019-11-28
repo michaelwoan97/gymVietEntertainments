@@ -1,4 +1,4 @@
-const apiKey='f2e86216544164cf2009c966946ce960' ;
+
 
 // const movieDatabases= async () =>{
 //     try{
@@ -13,6 +13,7 @@ const apiKey='f2e86216544164cf2009c966946ce960' ;
 // }
 
 export const movieDatabases={
+    apiKey: 'f2e86216544164cf2009c966946ce960',
     fetch: async url =>{
         try{
             const response=await fetch(url);
