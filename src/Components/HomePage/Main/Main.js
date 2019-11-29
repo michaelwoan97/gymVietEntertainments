@@ -9,6 +9,7 @@ import { TopRatedMovies } from './TopRatedMovies/TopRatedMovies';
 
 
 
+
 import './Main.scss';
 
 class Main extends React.Component {
@@ -76,10 +77,33 @@ class Main extends React.Component {
                 TopRatedMovies: res.results
             })
         });
-
+        
+        // fetch TvShows data
+        // movieDatabases.fetch(`https://api.themoviedb.org/3/tv/airing_today?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
+        //     this.setState({
+        //         LastestTvShows: res.results
+        //     })
+        // })
+        // movieDatabases.fetch(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
+        //     this.setState({
+        //         UpcomingTvShows: res.results
+        //     })
+        // })
+        // movieDatabases.fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
+        //     this.setState({
+        //         PopularTvshows: res.results
+        //     })
+        // })
+        // movieDatabases.fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
+        //     this.setState({
+        //         TopRatedTvshows: res.results
+        //     })
+        // })
     }
 
+
     handleClickTv() {
+        // Fetch TvShow datas
         movieDatabases.fetch(`https://api.themoviedb.org/3/tv/airing_today?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
             this.setState({
                 LatestMovies: res.results
@@ -100,9 +124,18 @@ class Main extends React.Component {
                 TopRatedMovies: res.results
             })
         })
+        //
+
+        document.getElementById('LatestMovies').className="latestMovies latestTvShows";
+        document.getElementById('LatestSection__Titles').innerHTML="Airing Today";
+        document.getElementById('UpcommingSection__Titles').innerHTML="ON THE AIR";
     }
+
     handleClickMovies() {
         document.querySelector('.button__tvShow').removeEventListener('click',this.handleClickTv,false);
+        document.getElementById('LatestMovies').className="latestMovies";
+        document.getElementById('LatestSection__Titles').innerHTML="Latest";
+        document.getElementById('UpcommingSection__Titles').innerHTML="UPCOMMING";
         this.componentDidMount();
     }
     // handleGenre(movieId,apiKey) {
@@ -135,6 +168,7 @@ class Main extends React.Component {
                             <PopularMovies PopularMovies={this.state.PopularMovies}/>
                             <TopRatedMovies TopRatedMovies={this.state.TopRatedMovies}/>
                     </section>
+
             </main>
         );
     }

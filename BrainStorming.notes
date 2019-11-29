@@ -152,12 +152,17 @@ Ideas:
 [ ] Learn streaming
 [ ] Start wrting and music lyrics.
 TODO:
-[ ] ~2 hours on Learning
-[ ] ~1 hours on practice
+[√] ~2 hours on Learning
+[√] ~1 hours on practice
 [√] Cook meal
-[ ] Work out 
+[√] Work out 
 [ ] Read Book NASM
 [ ] Go to bed early
 Activity Log:
 Brainstorming ideas:
 -DRYcode & CRAM, avoid burn out, & do not focus on small detail
+[√] Working on mobile version.
+[√] Fetch Tvshow and setState.
+[√] Add onClick method change the layout.
+[ ] React & Redux.
+[ ] Working on nav

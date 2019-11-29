@@ -4,7 +4,7 @@ import './UpcomingMovies.scss';
 export const UpcomingMovies= props =>{
     return(
         <section className='categoryMovies'>
-                <h2 className='categoryMovies__titles'>UPCOMING</h2>
+                <h2 id="UpcommingSection__Titles" className='categoryMovies__titles'>UPCOMING</h2>
                 {/* <section className='swipeWraper'>
                         <button><i className='fas fa-angle-left'></i></button>
                         <button><i className='fas fa-angle-right'></i></button>
@@ -22,7 +22,7 @@ export const UpcomingMovies= props =>{
                                                             <span style={{ textTransform: 'uppercase'}}>{item.original_language}</span>
                                                             </section>
                                                 </section>
-                                                <p className='infoMovies__titles'>{item.title}</p>
+                                                <p className='infoMovies__titles'>{item.title || item.name}</p>
                                                 <span>
                                                     <i className='fas fa-heart' style={{ color: '	#e31b23'}}></i>{item.popularity}
                                                     <i className='fa fa-star' style={{ color: '#fed330'}}></i>{item.vote_average}  

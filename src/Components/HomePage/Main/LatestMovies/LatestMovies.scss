@@ -34,6 +34,7 @@
                     padding: 0 0 2rem 0;
                 }
                 p{
+                    color:rgba(255,255,255,0.91);
                     font-size:1.8rem;
                 }
                 .infoMovies__categories{
@@ -46,9 +47,8 @@
                 }
                 span{
                     font-size:1rem;
-                    .fas .fa-heart{
-                        color: red;
-                    }
+                    color:rgba(255,255,255,0.7);
+                    
                 }
             }
         }

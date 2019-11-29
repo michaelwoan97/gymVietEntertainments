@@ -14,20 +14,20 @@ export const LatestMovies= props =>{
     // console.log(movieList)
     
     return(
-        <section className="latestMovies">
+        <section id='LatestMovies' className="latestMovies">
             <section className='carouselLatestMovies'>
-            {props.LatestMovies.map( movie =>{
+            {props.LatestMovies.map( item =>{
                 return(
                     <section className='w3-display-container'>
-                            <section id='background' className='imageMovies' style={{ backgroundImage: `url('https://image.tmdb.org/t/p/original/${movie.poster_path}')` }}></section>
+                            <section id='background' className='imageMovies' style={{ backgroundImage: `url('https://image.tmdb.org/t/p/original/${item.poster_path}')` }}></section>
                             <section className="progress-bar w3-display-topleft" ></section>
                             
                             <section className='infoMovies w3-display-bottomleft '>
-                                    <h1 className='categoryMovies__titles'>Latest</h1>
-                                    <p className='infoMovies__titles'>{movie.title}</p>
-                                    <span className='infoMovies__categories'> {movie.release_date} | </span>
-                                    <span><i className='fas fa-heart' style={{ color: '	#e31b23'}}></i>{movie.popularity} </span>
-                                    <span> <i className='fa fa-star' style={{ color: '#fed330'}}></i>{movie.vote_average}</span>
+                                    <h1 id="LatestSection__Titles" className='categoryMovies__titles'>Latest</h1>
+                                    <p className='infoMovies__titles'>{item.title || item.name}</p>
+                                    <span className='infoMovies__categories'> {item.release_date || item.first_air_date} | </span>
+                                    <span><i className='fas fa-heart' style={{ color: '	rgba(227,27,35,0.7)'}}></i>{item.popularity} </span>
+                                    <span> <i className='fa fa-star' style={{ color: 'rgba(254,211,48,0.7)'}}></i>{item.vote_average}</span>
                                 </section>
                         </section>      
                 );

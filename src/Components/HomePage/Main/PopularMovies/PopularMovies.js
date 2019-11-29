@@ -4,7 +4,7 @@ import './PopularMovies.scss';
 export const PopularMovies= props =>{
     return(
         <section className='categoryMovies'>
-                <h2 className='categoryMovies__titles'>POPULAR</h2>
+                <h2 id="PopularSection__Titles" className='categoryMovies__titles'>POPULAR</h2>
               
                 <section className='categoryMoviesCarousel'>
                         
@@ -19,7 +19,7 @@ export const PopularMovies= props =>{
                                                             <span style={{ textTransform: 'uppercase'}}>{item.original_language}</span>
                                                         </section>
                                                 </section>
-                                                <p className='infoMovies__titles'>{item.title}</p>
+                                                <p className='infoMovies__titles'>{item.title || item.name}</p>
                                                 <span >
                                                     <i className='fas fa-heart' style={{ color: '	#e31b23'}}></i>{item.popularity} 
                                                     <i className='fa fa-star' style={{ color: '#fed330'}}></i>{item.vote_average} 
