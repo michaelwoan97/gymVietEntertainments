@@ -27,7 +27,7 @@ main{
         .categoryMoviesCarousel{
             padding-left:1rem;
             display:grid;
-            grid-template-rows: 1fr 3px 4rem;
+            grid-template-rows: 1fr 0rem 4rem;
             // grid-template-rows: 17rem ;
             grid-row-gap:5px;
             overflow: hidden;
@@ -63,15 +63,17 @@ main{
                     filter:brightness(65%);
                     display:grid;
                     grid-template-rows: 0.5fr 0.1fr ;
-                  
+            
                     .infoMovies__titles{
                         font-size:1.2rem;
+                        color:rgba(255,255,255,0.91);
                     }
                     .infoMovies__categories{
                         color: rgba(255,255,255,0.7);
                         
                     }
                     span{
+                        color:rgba(255,255,255,0.7);
                         .fa-star{
                             margin-left:5px;
                         }
@@ -82,18 +84,19 @@ main{
             .categoryMovies__seperator{
                 background-image: radial-gradient(circle, rgba(210, 208, 208, 0.7) 0%, rgba(210, 208, 208, 0) 90%);
                 height:0.2rem;
+                grid-row-start:2;
             }
             .swipeWraper{
                     width:100vw;
                     display:flex;
                     justify-content: space-between;
                     z-index:5;
-                
+                    position: absolute;
                     button{
                         background-color: rgba(0,0,0,0);
                         border:none;
                         position: relative;
-                        bottom:17rem;
+                        top:3rem;
                         z-index:10;
                     .fa-angle-left{
                         margin-left:-1rem;

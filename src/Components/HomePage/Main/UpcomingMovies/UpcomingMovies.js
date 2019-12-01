@@ -24,8 +24,8 @@ export const UpcomingMovies= props =>{
                                                 </section>
                                                 <p className='infoMovies__titles'>{item.title || item.name}</p>
                                                 <span>
-                                                    <i className='fas fa-heart' style={{ color: '	#e31b23'}}></i>{item.popularity}
-                                                    <i className='fa fa-star' style={{ color: '#fed330'}}></i>{item.vote_average}  
+                                                    <i className='fas fa-heart' style={{ color: '	rgba(227,27,35,0.7)'}}></i>{item.popularity}
+                                                    <i className='fa fa-star' style={{ color: 'rgba(254,211,48,0.7)'}}></i>{item.vote_average}  
                                                 </span>
                                                
                                                 
@@ -43,6 +43,7 @@ export const UpcomingMovies= props =>{
                         <span className='categoryMovies__seperator'></span>
                     </section>
                     
+                  
         </section>
     );
 }

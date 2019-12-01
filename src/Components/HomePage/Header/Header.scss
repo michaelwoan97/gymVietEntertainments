@@ -4,8 +4,8 @@ header{
     nav{
         width:100vw;
         position: fixed;
+        z-index:9999;
         i{
-            
             font-size:3rem !important;
         }
     }

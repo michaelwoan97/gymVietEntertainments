@@ -15,17 +15,17 @@ What things you need to install the software and how to install them
 
 ## Installing
 
-## 1.Clone the repo
+# 1.Clone the repo
         git clone https://github.com/michaelwoan97/gymVietEntertainments.git
-## 2. Run npm install
+# 2. Run npm install
     
         npm install 
 
-## 3. Start the server
+# 3. Start the server
 
         npm run start
 
-## 4. Explore
+# 4. Explore
         
         Happy Coding:)
 
