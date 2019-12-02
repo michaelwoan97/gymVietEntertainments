@@ -1,4 +1,9 @@
 import React from 'react';
+
+import { createStore,applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+
 import logo from '../../logo.svg';
 import Header from '../HomePage/Header/Header';
 import Main from '../HomePage/Main/Main';
@@ -7,12 +12,13 @@ import './App.css';
 
 class App extends React.Component{
   render() {
+    const store= createStore(() =>[], {},applyMiddleware(thunk))
     return (
-      <section>
+      <Provider store={store}>
           <Header />
           <Main />
           <Footer />
-      </section>
+        </Provider>
     );
   }
 }

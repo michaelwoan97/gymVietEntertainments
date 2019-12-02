@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import { connect } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider, connect} from 'react-redux';
+import thunk from 'redux-thunk';
+import { fetchLatestMovies } from '../../../Actions/fetchActions';
+import { fetchUpcomingMovies } from '../../../Actions/fetchActions';
+import { fetchPopularMovies } from '../../../Actions/fetchActions';
+import { fetchTopRatedMovies } from '../../../Actions/fetchActions';
 
 import { movieDatabases } from '../Util/Tmdb';
 import { LatestMovies } from './LatestMovies/LatestMoives';
@@ -14,55 +18,7 @@ import { PopularMovies } from './PopularMovies/PopularMovies';
 import { TopRatedMovies } from './TopRatedMovies/TopRatedMovies';
 import './Main.scss';
 
-// // Redux code 
-// const LATEST_MOVIES='LATEST_MOVIES';
 
-// const latestMovies= (payload) =>{
-//     return{
-//         type:LATEST_MOVIES,
-//         payload
-//     }
-// }
-
-// const latestMoviesReducer= (state= [], action) =>{
-//     switch(action.type){
-//         case 'LATEST_MOVIES':
-//             return [...state,action.payload];
-//             break;
-//         default:
-//             return state;
-//             break;
-//     }
-// }
-
-// const store= createStore(latestMoviesReducer);
-
-// class AppWrapper extends React.Component {
-//     // render the Provider here
-//     render(){
-//       return(
-//         <Provider store={store}>
-//             <Main />
-//           </Provider>
-//       );
-//     }
-// };
-
-// const state=[];
-// const mapStateToProps= state =>{
-//     return{
-//         movies: state
-//     }
-// }
-// const mapDispatchToProps= dispatch =>{
-//     return{
-//         handleClickTv: function(movies) {
-//             dispatch(latestMoviesReducer(movies));
-//         }
-//     }
-// }
-
-// const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps) (Main);
 
 // React code
 class Main extends React.Component {
@@ -208,23 +164,111 @@ class Main extends React.Component {
     // }
    
     render() {
+        // const store= createStore(() =>[], {},applyMiddleware(thunk))
         return(
-            <main>
-                    <LatestMovies LatestMovies={this.state.LatestMovies} 
-                                    />
-                    <section className='movies'>
-                        <section className='button'>
-                                    <button className='button__movies' onClick={this.handleClickMovies} type='button'>MOVIES</button>
-                                    <button className='button__tvShow' onClick={this.handleClickTv} type='button'>TV SHOW</button>
+            // <Provider store={store}>
+                    <main>
+                            <LatestMovies LatestMovies={this.state.LatestMovies} 
+                                            />
+                            <section className='movies'>
+                                <section className='button'>
+                                            <button className='button__movies' onClick={this.handleClickMovies} type='button'>MOVIES</button>
+                                            <button className='button__tvShow' onClick={this.handleClickTv} type='button'>TV SHOW</button>
+                                    </section>
+                                    <UpcomingMovies  UpcomingMovies={this.state.UpcomingMovies}/> 
+                                    <PopularMovies PopularMovies={this.state.PopularMovies}/>
+                                    <TopRatedMovies TopRatedMovies={this.state.TopRatedMovies}/>
                             </section>
-                            <UpcomingMovies  UpcomingMovies={this.state.UpcomingMovies}/> 
-                            <PopularMovies PopularMovies={this.state.PopularMovies}/>
-                            <TopRatedMovies TopRatedMovies={this.state.TopRatedMovies}/>
-                    </section>
 
-            </main>
+                    </main>
+                // </Provider>
         );
     }
 }
 
-export default Main;
+const mapStateToProps= state=> {
+    return{
+        movies: state
+    }
+}
+
+const mapDispatchToProps= dispatch =>{
+    return{
+        getLatestMovies: fetchLatestMovies,
+        getUpcommingMovies: fetchUpcomingMovies,
+        getPopularMovies: fetchPopularMovies,
+        getTopRatedMovies: fetchTopRatedMovies,
+    };
+};
+export default connect(mapStateToProps,mapDispatchToProps)(Main);
+// Redux code 
+// const LATEST_MOVIES='LATEST_MOVIES';
+
+// const latestMovies= (payload) =>{
+//     return{
+//         type:LATEST_MOVIES,
+//         payload
+//     }
+// }
+
+// const handleLatestMovies= url =>{
+//     return async dispatch =>{
+//         try{
+//             const res= await fetch(url);
+//             if(res.ok){
+//                 const jsonRes= await res.json();
+//                 console.log(jsonRes);
+//                 dispatch(latestMovies(jsonRes));
+//             } throw new Error ('Requested Fail!');
+//         } catch(e){
+//             console.log(e);
+//             dispatch(e);
+//         } 
+//     }
+// }
+
+// const latestMoviesReducer= (state= [], action) =>{
+//     switch(action.type){
+//         case 'LATEST_MOVIES':
+//             return [...state,action.payload];
+//             break;
+//         default:
+//             return state;
+//             break;
+//     }
+// }
+
+// const state=[];
+
+// const mapStateToProps = state =>{
+//     return{
+//         LatestMovies: state
+//     }
+// }
+
+// const mapDispatchToProps= dispatch =>{
+//     return{
+//         getLatestMovies: function(movies) {
+//             dispatch(latestMovies(movies))
+//         }
+//     }
+// }
+
+// const store= createStore(latestMoviesReducer,applyMiddleware(thunk));
+
+// const Container=connect(mapStateToProps, mapDispatchToProps) (Main);
+
+// class AppWrapper extends React.Component {
+//     constructor(props) {
+//         super(props);
+//     }
+
+//     render() {
+//       return (
+//         <Provider store={store}>
+//           <Container/>
+//         </Provider>
+//       );
+//     }
+// };
+
