@@ -1,17 +1,70 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
+
 import { movieDatabases } from '../Util/Tmdb';
 import { LatestMovies } from './LatestMovies/LatestMoives';
+
 // import  LatestMovies  from './LatestMovies/LatestMoives';
 import { UpcomingMovies } from './UpcomingMovies/UpcomingMovies';
 import { PopularMovies } from './PopularMovies/PopularMovies';
 import { TopRatedMovies } from './TopRatedMovies/TopRatedMovies';
-
-
-
-
 import './Main.scss';
 
+// // Redux code 
+// const LATEST_MOVIES='LATEST_MOVIES';
+
+// const latestMovies= (payload) =>{
+//     return{
+//         type:LATEST_MOVIES,
+//         payload
+//     }
+// }
+
+// const latestMoviesReducer= (state= [], action) =>{
+//     switch(action.type){
+//         case 'LATEST_MOVIES':
+//             return [...state,action.payload];
+//             break;
+//         default:
+//             return state;
+//             break;
+//     }
+// }
+
+// const store= createStore(latestMoviesReducer);
+
+// class AppWrapper extends React.Component {
+//     // render the Provider here
+//     render(){
+//       return(
+//         <Provider store={store}>
+//             <Main />
+//           </Provider>
+//       );
+//     }
+// };
+
+// const state=[];
+// const mapStateToProps= state =>{
+//     return{
+//         movies: state
+//     }
+// }
+// const mapDispatchToProps= dispatch =>{
+//     return{
+//         handleClickTv: function(movies) {
+//             dispatch(latestMoviesReducer(movies));
+//         }
+//     }
+// }
+
+// const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps) (Main);
+
+// React code
 class Main extends React.Component {
     constructor(props) {
         super(props);
