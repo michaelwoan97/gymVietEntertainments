@@ -1,5 +1,6 @@
 import React from 'react';
 
+import store from '../../store';
 import { createStore,applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
@@ -12,7 +13,7 @@ import './App.css';
 
 class App extends React.Component{
   render() {
-    const store= createStore(() =>[], {},applyMiddleware(thunk))
+  
     return (
       <Provider store={store}>
           <Header />

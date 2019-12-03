@@ -41,7 +41,10 @@ class Main extends React.Component {
     }
 
     componentDidMount() {
-    
+        this.props.getLatestMovies(`https://api.themoviedb.org/3/movie/now_playing?api_key=${movieDatabases.apiKey}&language=en-US&page=1`);
+        this.props.getUpcommingMovies();
+        this.props.getPopularMovies();
+        this.props.getTopRatedMovies();
         // fetch Movie datas
         movieDatabases.fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then(res =>{
             this.setState({
@@ -188,87 +191,20 @@ class Main extends React.Component {
 
 const mapStateToProps= state=> {
     return{
-        movies: state
-    }
-}
-
-const mapDispatchToProps= dispatch =>{
-    return{
-        getLatestMovies: fetchLatestMovies,
-        getUpcommingMovies: fetchUpcomingMovies,
-        getPopularMovies: fetchPopularMovies,
-        getTopRatedMovies: fetchTopRatedMovies,
+        LatestMovies: state.movie.LatestMovies,
+        UpcomingMovies: state.movie.UpcomingMovies,
+        PopularMovies: state.movie.PopularMovies,
+        TopRatedMovies: state.movie.TopRatedMovies
     };
 };
+
+const mapDispatchToProps= dispatch =>{
+    return {
+        getLatestMovies: url => dispatch(fetchLatestMovies(url)),
+        getUpcommingMovies: () => dispatch(fetchUpcomingMovies()),
+        getPopularMovies: () => dispatch(fetchPopularMovies()),
+        getTopRatedMovies: () => dispatch(fetchTopRatedMovies()),
+    }
+};
+
 export default connect(mapStateToProps,mapDispatchToProps)(Main);
-// Redux code 
-// const LATEST_MOVIES='LATEST_MOVIES';
-
-// const latestMovies= (payload) =>{
-//     return{
-//         type:LATEST_MOVIES,
-//         payload
-//     }
-// }
-
-// const handleLatestMovies= url =>{
-//     return async dispatch =>{
-//         try{
-//             const res= await fetch(url);
-//             if(res.ok){
-//                 const jsonRes= await res.json();
-//                 console.log(jsonRes);
-//                 dispatch(latestMovies(jsonRes));
-//             } throw new Error ('Requested Fail!');
-//         } catch(e){
-//             console.log(e);
-//             dispatch(e);
-//         } 
-//     }
-// }
-
-// const latestMoviesReducer= (state= [], action) =>{
-//     switch(action.type){
-//         case 'LATEST_MOVIES':
-//             return [...state,action.payload];
-//             break;
-//         default:
-//             return state;
-//             break;
-//     }
-// }
-
-// const state=[];
-
-// const mapStateToProps = state =>{
-//     return{
-//         LatestMovies: state
-//     }
-// }
-
-// const mapDispatchToProps= dispatch =>{
-//     return{
-//         getLatestMovies: function(movies) {
-//             dispatch(latestMovies(movies))
-//         }
-//     }
-// }
-
-// const store= createStore(latestMoviesReducer,applyMiddleware(thunk));
-
-// const Container=connect(mapStateToProps, mapDispatchToProps) (Main);
-
-// class AppWrapper extends React.Component {
-//     constructor(props) {
-//         super(props);
-//     }
-
-//     render() {
-//       return (
-//         <Provider store={store}>
-//           <Container/>
-//         </Provider>
-//       );
-//     }
-// };
-

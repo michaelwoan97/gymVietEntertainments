@@ -5,15 +5,18 @@ import { FETCH_TOP_RATED_MOVIES } from '../Actions/actionTypes';
 
 const apiKey='f2e86216544164cf2009c966946ce960';
 
-export const fetchLatestMovies= () => dispatch =>{
-    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`)
-    .then(res => res.json())
-    .then( movies =>{
-        dispatch({
-            type: FETCH_LATEST_MOVIES,
-            payload: movies
-        })
-    });
+export const fetchLatestMovies= url =>{
+    return dispatch =>{
+        console.log('123');
+        fetch(url)
+        .then(res => res.json())
+        .then( movies =>{
+            dispatch({
+                type: FETCH_LATEST_MOVIES,
+                payload: movies.results
+            })
+        }).catch(error => console.log(error));
+    }
 };
 
 export const fetchUpcomingMovies= () => dispatch =>{
@@ -22,9 +25,9 @@ export const fetchUpcomingMovies= () => dispatch =>{
     .then(movies =>{
         dispatch({
             type: FETCH_UPCOMING_MOVIES,
-            payload: movies
+            payload: movies.results
         })
-    });
+    }).catch(error => console.log(error));
 };
 
 export const fetchPopularMovies= () => dispatch =>{
@@ -33,9 +36,9 @@ export const fetchPopularMovies= () => dispatch =>{
     .then(movies =>{
         dispatch({
             type: FETCH_POPULAR_MOVIES,
-            payload: movies
+            payload: movies.results
         })
-    });
+    }).catch(error => console.log(error));
 };
 
 export const fetchTopRatedMovies= () => dispatch =>{
@@ -44,7 +47,7 @@ export const fetchTopRatedMovies= () => dispatch =>{
     .then(movies =>{
         dispatch({
             type: FETCH_TOP_RATED_MOVIES,
-            payload: movies
+            payload: movies.results
         })
-    });
+    }).catch(error => console.log(error));
 };

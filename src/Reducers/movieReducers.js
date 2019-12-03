@@ -3,20 +3,32 @@ import { FETCH_UPCOMING_MOVIES } from '../Actions/actionTypes';
 import { FETCH_POPULAR_MOVIES } from '../Actions/actionTypes';
 import { FETCH_TOP_RATED_MOVIES } from '../Actions/actionTypes';
 
-const movieReducers= (state=[],action) =>{
+const initialState={
+
+}
+
+const movieReducers= (state= initialState,action) =>{
     switch(action.type){
         case 'FETCH_LATEST_MOVIES':
-            return [...state, action.payload];
-            break;
+            return {
+               ...state,
+                LatestMovies: [...action.payload]
+            };
         case 'FETCH_UPCOMING_MOVIES':
-            return [...state, action.payload];
-            break;
+            return {
+                ...state,
+                UpcomingMovies: [...action.payload]
+            };
         case 'FETCH_POPULAR_MOVIES':
-            return [...state, action.payload];
-            break;
+            return {
+                ...state,
+                PopularMovies: [...action.payload]
+            };
         case 'FETCH_TOP_RATED_MOVIES':
-            return [...state, action.payload];
-            break;
+            return {
+                ...state,
+                TopRatedMovies: [...action.payload]
+            };
         default:
             return state;
             break;
