@@ -14,7 +14,7 @@ export const LatestMovies= props =>{
     // console.log(movieList)
     
     return(
-        <section id='LatestMovies' className="latestMovies">
+        <section id='LatestMovies' className="wow fadeIn latestMovies">
             <section className='carouselLatestMovies'>
             {props.LatestMovies.map( (item,i) =>{
                 return(
@@ -23,11 +23,11 @@ export const LatestMovies= props =>{
                             <section className="progress-bar w3-display-topleft" ></section>
                             
                             <section className='infoMovies w3-display-bottomleft '>
-                                    <h1 id="LatestSection__Titles" className='categoryMovies__titles'>Latest</h1>
-                                    <p className='infoMovies__titles'>{item.title || item.name}</p>
-                                    <span className='infoMovies__categories'> {item.release_date || item.first_air_date} | </span>
-                                    <span><i className='fas fa-heart' style={{ color: '	rgba(227,27,35,0.7)'}}></i>{item.popularity} </span>
-                                    <span> <i className='fa fa-star' style={{ color: 'rgba(254,211,48,0.7)'}}></i>{item.vote_average}</span>
+                                    <h1 id="LatestSection__Titles" className='wow fadeInLeft categoryMovies__titles'>Latest</h1>
+                                    <p className='wow fadeIn infoMovies__titles'  data-wow-delay="0.7s">{item.title || item.name}</p>
+                                    <span className='wow fadeIn infoMovies__categories' data-wow-delay="0.7s"> {item.release_date || item.first_air_date} | </span>
+                                    <span className='wow fadeIn' data-wow-delay="0.7s"><i className='fas fa-heart' style={{ color: 'rgba(227,27,35,0.7)'}}></i>{item.popularity} </span>
+                                    <span className='wow fadeIn' data-wow-delay="0.7s"> <i className='fa fa-star' style={{ color: 'rgba(254,211,48,0.7)'}}></i>{item.vote_average}</span>
                                 </section>
                         </section>      
                 );

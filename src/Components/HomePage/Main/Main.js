@@ -66,7 +66,7 @@ class Main extends React.Component {
         document.querySelector('.button__tvShow').removeEventListener('click',this.handleClickTv,false);
         document.getElementById('LatestMovies').className="latestMovies";
         document.getElementById('LatestSection__Titles').innerHTML="Latest";
-        document.getElementById('UpcommingSection__Titles').innerHTML="UPCOMMING";
+        document.getElementById('UpcommingSection__Titles').innerHTML="UPCOMING";
         this.componentDidMount();
     }
     // handleGenre(movieId,apiKey) {
@@ -92,8 +92,8 @@ class Main extends React.Component {
                                     posterSize={this.props.configureApi}/>
                     <section className='movies'>
                                 <section className='button'>
-                                            <button className='button__movies' onClick={this.handleClickMovies} type='button'>MOVIES</button>
-                                            <button className='button__tvShow' onClick={this.handleClickTv} type='button'>TV SHOW</button>
+                                            <button className='wow slideInLeft button__movies' onClick={this.handleClickMovies} type='button'>MOVIES</button>
+                                            <button className='wow slideInRight button__tvShow' onClick={this.handleClickTv} type='button'>TV SHOW</button>
                                     </section>
                                     <UpcomingMovies  UpcomingMovies={this.props.UpcomingMovies}
                                                        /> 

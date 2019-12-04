@@ -4,7 +4,7 @@ import './TopRatedMovies.scss';
 export const TopRatedMovies= props =>{
     return(
         <section className='categoryMovies'>
-                <h2 id="TopRatedSection__Titles" className='categoryMovies__titles'>TOP RATED</h2>
+                <h2 id="TopRatedSection__Titles" className='wow fadeInLeft categoryMovies__titles'>TOP RATED</h2>
                 {/* <section className='swipeWraper'>
                         <button><i className='fas fa-angle-left'></i></button>
                         <button><i className='fas fa-angle-right'></i></button>
@@ -14,9 +14,9 @@ export const TopRatedMovies= props =>{
                         <section className='carouselMovies'>
                                 {props.TopRatedMovies.map( (item,i) =>{
                                     return(
-                                        <section id='visibilityInfoMovies' className='infoMovies' key={`Movie_`+i}>
+                                        <section id='visibilityInfoMovies' className='wow fadeIn infoMovies' data-wow-delay="0.5s"  key={`Movie_`+i}>
                                                 <section className='w3-display-container w3-text-white containerImages'>
-                                                            <img src={`https://image.tmdb.org/t/p/w154/${item.poster_path}`} alt={item.overview} />
+                                                            <img src={`https://image.tmdb.org/t/p/w185/${item.poster_path}`} alt={item.overview} />
                                                             <section className="w3-display-topleft w3-container">
                                                                 <span className="material-icons" style={{ color: '#3498db'}}>language</span>
                                                                 <span style={{ textTransform: 'uppercase'}}>{item.original_language}</span>

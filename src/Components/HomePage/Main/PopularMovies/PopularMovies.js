@@ -4,16 +4,16 @@ import './PopularMovies.scss';
 export const PopularMovies= props =>{
     return(
         <section className='categoryMovies'>
-                <h2 id="PopularSection__Titles" className='categoryMovies__titles'>POPULAR</h2>
+                <h2 id="PopularSection__Titles" className='wow fadeInLeft categoryMovies__titles'>POPULAR</h2>
               
                 <section className='categoryMoviesCarousel'>
                         
                         <section className='carouselMovies'>       
                                 {props.PopularMovies.map( (item,i) =>{
                                     return(
-                                        <section id='visibilityInfoMovies' className='infoMovies' key={`Movie_`+i}>
+                                        <section id='visibilityInfoMovies' className='wow fadeIn infoMovies' data-wow-delay="0.5s" key={`Movie_`+i}>
                                             <section className='w3-display-container w3-text-white containerImages'>
-                                                        <img src={`https://image.tmdb.org/t/p/w154/${item.poster_path}`} alt={item.overview} />
+                                                        <img src={`https://image.tmdb.org/t/p/w185/${item.poster_path}`} alt={item.overview} />
                                                         <section className="w3-display-topleft w3-container">
                                                             <span className="material-icons" style={{ color: '#3498db'}}>language</span>
                                                             <span style={{ textTransform: 'uppercase'}}>{item.original_language}</span>

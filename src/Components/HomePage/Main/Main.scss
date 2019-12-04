@@ -1,3 +1,5 @@
+@import '../../../Styles/variables';
+
 main{
     font-family: 'Times New Roman', Times, serif;
     .movies{
@@ -99,9 +101,7 @@ main{
                         position: relative;
                         top:3rem;
                         z-index:10;
-                    .fa-angle-left{
-                        margin-left:-1rem;
-                    }
+                   
                     i{
                         color:#3498db;
                         font-size:7rem;
@@ -110,4 +110,61 @@ main{
             }
         }
     } 
+}
+
+@media screen and (min-width: $screen-sm-min){
+    main{
+        .categoryMovies{
+            .categoryMoviesCarousel{
+                .carouselMovies{
+                    grid-template-columns:repeat(4, 10rem);
+                    padding-left: 3rem;
+                    .containerImages{
+                        width:100%;
+                    }
+                    #visibilityInfoMovies{
+                        &:nth-child(4){
+                            display: inline-block;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $screen-md-min){
+    main{
+        .categoryMovies{
+            .categoryMoviesCarousel{
+                .carouselMovies{
+                    grid-template-columns:repeat(5, 10rem);
+                    
+                    #visibilityInfoMovies{
+                        &:nth-child(5){
+                            display: inline-block;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $screen-lg-min){
+    main{
+        .categoryMovies{
+            &:nth-child(n+1){
+                width:65rem;
+                margin:0 auto;
+            }
+            .categoryMoviesCarousel{
+                .swipeWraper{
+                    width:61rem;
+                }
+            }
+        }
+    }
 }

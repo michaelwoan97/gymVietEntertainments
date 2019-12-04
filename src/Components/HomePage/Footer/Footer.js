@@ -6,12 +6,12 @@ class Footer extends React.Component {
     render() {
         return(
             <footer>
-                    <section className='copyRight'>
+                    <section className='wow fadeInLeft copyRight'>
                         <img src={Logo} alt='GymVietEntertain Logo' />
                         <p>&#9400; 2019 copyright, GVE Inc. </p>
                     </section>
                     
-                    <section className='socialMedia'>
+                    <section className='wow slideInRight socialMedia'>
                         <a href="#"><i className='fab fa-facebook-square'></i></a>
                         <a href="#"><i className='fab fa-instagram'></i></a>
                         <a href="#"><i className='fab fa-twitter-square'></i></a>
