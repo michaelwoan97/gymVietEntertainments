@@ -191,8 +191,29 @@ Brainstorming ideas:
 [2019-12-03]
 Notes:
 Ideas:
-[ ] Learn streaming.
-[ ] Writing articles & music
+[√] Learn streaming.
+[√] Writing articles & music
+TODO:
+[√] ~2 hours on Learning
+[√] ~1 hours on practice
+[√] Cook meal
+[√] Work out 
+[√] Read Book NASM
+[√] Post on Facebook
+[√] Go to bed early
+Activity Log:
+Brainstorming ideas:
+-DRYcode & CRAM, avoid burn out, & do not focus on small detail.
+[√] Working on mobile version.
+[√] React&Redux
+[x] Working on nav&slider.
+[x] expand on another dimension.
+
+[2019-12-04]
+Notes:
+Ideas:
+[ ] streaming
+[ ] Write articles and music
 TODO:
 [ ] ~2 hours on Learning
 [ ] ~1 hours on practice
@@ -204,7 +225,7 @@ TODO:
 Activity Log:
 Brainstorming ideas:
 -DRYcode & CRAM, avoid burn out, & do not focus on small detail.
-[√] Working on mobile version.
-[√] React&Redux
-[ ] Working on nav&slider.
-[ ] expand on another dimension.
+[ ] Working on mobile & expand into another dimension.
+[√] Increase performance(RY code, Call Api, send the exact true size of images).
+[ ] Working on nav & slider.
+[ ] Wireframing new idea.

@@ -1,3 +1,5 @@
+import { CONFIGURE_API} from '../Actions/actionTypes';
+
 import { FETCH_LATEST_MOVIES } from '../Actions/actionTypes';
 import { FETCH_UPCOMING_MOVIES } from '../Actions/actionTypes';
 import { FETCH_POPULAR_MOVIES } from '../Actions/actionTypes';
@@ -14,6 +16,18 @@ const initialState={
     UpcomingMovies: [],
     PopularMovies: [],
     TopRatedMovies: []
+};
+
+export const configureReducer=(state= {}, action) =>{
+    switch(action.type){
+        case CONFIGURE_API:
+            return{
+                ...state,
+                configureApi: {...action.payload}
+            };
+        default:
+            return state;
+    }
 };
 
 export const movieReducers= (state= initialState,action) =>{

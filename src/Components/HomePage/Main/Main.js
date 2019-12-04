@@ -4,6 +4,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
+import { fetchConfigureApi } from '../../../Actions/fetchActions';
 import { fetchLatestMovies } from '../../../Actions/fetchActions';
 import { fetchUpcomingMovies } from '../../../Actions/fetchActions';
 import { fetchPopularMovies } from '../../../Actions/fetchActions';
@@ -36,76 +37,17 @@ class Main extends React.Component {
     }
 
     componentDidMount() {
+        this.props.getConfigureApi();
         this.props.getLatestMovies(`https://api.themoviedb.org/3/movie/now_playing?api_key=${movieDatabases.apiKey}&language=en-US&page=1`);
         this.props.getUpcommingMovies();
         this.props.getPopularMovies();
         this.props.getTopRatedMovies();
-        // fetch Movie datas
-        // movieDatabases.fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then(res =>{
-        //     this.setState({
-        //         LatestMovies: res.results,
-             
-        //     })
-        // });
-        
+
         // movieDatabases.fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`).then(res =>{
         //     this.setState({
         //         movieLists: res.genres
         //     })
         // });
-       
-        // movieDatabases.fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`).then(res =>{
-        //     res.results.map(movie =>{
-        //         movieDatabases.fetchList(movie.id,apiKey).then(data =>{
-        //             movieGenre.push(data);
-        //         });
-                
-        //     })
-        //     this.setState({
-        //         movieList: movieGenre
-        //     })
-        //     console.log(this.state.movieList)
-        // });
-
-        // movieDatabases.fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then(res =>{
-        //     this.setState({
-        //         UpcomingMovies: res.results
-        //     })
-        // });
-
-        // movieDatabases.fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then(res =>{
-        //     this.setState({
-        //         PopularMovies: res.results
-        //     })
-        // });
-
-        // movieDatabases.fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then(res =>{
-        //     this.setState({
-        //         TopRatedMovies: res.results
-        //     })
-        // });
-        
-        // fetch TvShows data
-        // movieDatabases.fetch(`https://api.themoviedb.org/3/tv/airing_today?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
-        //     this.setState({
-        //         LastestTvShows: res.results
-        //     })
-        // })
-        // movieDatabases.fetch(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
-        //     this.setState({
-        //         UpcomingTvShows: res.results
-        //     })
-        // })
-        // movieDatabases.fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
-        //     this.setState({
-        //         PopularTvshows: res.results
-        //     })
-        // })
-        // movieDatabases.fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
-        //     this.setState({
-        //         TopRatedTvshows: res.results
-        //     })
-        // })
     }
 
 
@@ -114,28 +56,6 @@ class Main extends React.Component {
         this.props.getUpcomingTvShows(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${movieDatabases.apiKey}&language=en-US&page=1`);
         this.props.getPopularTvShows(`https://api.themoviedb.org/3/tv/popular?api_key=${movieDatabases.apiKey}&language=en-US&page=1`);
         this.props.getTopRatedTvShows(`https://api.themoviedb.org/3/tv/top_rated?api_key=${movieDatabases.apiKey}&language=en-US&page=1`);
-        // Fetch TvShow datas
-        // movieDatabases.fetch(`https://api.themoviedb.org/3/tv/airing_today?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
-        //     this.setState({
-        //         LatestMovies: res.results
-        //     })
-        // })
-        // movieDatabases.fetch(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
-        //     this.setState({
-        //         UpcomingMovies: res.results
-        //     })
-        // })
-        // movieDatabases.fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
-        //     this.setState({
-        //         PopularMovies: res.results
-        //     })
-        // })
-        // movieDatabases.fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
-        //     this.setState({
-        //         TopRatedMovies: res.results
-        //     })
-        // })
-        //
 
         document.getElementById('LatestMovies').className="latestMovies latestTvShows";
         document.getElementById('LatestSection__Titles').innerHTML="Airing Today";
@@ -169,13 +89,14 @@ class Main extends React.Component {
         return(
             <main>
                     <LatestMovies LatestMovies={this.props.LatestMovies} 
-                                            />
+                                    posterSize={this.props.configureApi}/>
                     <section className='movies'>
                                 <section className='button'>
                                             <button className='button__movies' onClick={this.handleClickMovies} type='button'>MOVIES</button>
                                             <button className='button__tvShow' onClick={this.handleClickTv} type='button'>TV SHOW</button>
                                     </section>
-                                    <UpcomingMovies  UpcomingMovies={this.props.UpcomingMovies}/> 
+                                    <UpcomingMovies  UpcomingMovies={this.props.UpcomingMovies}
+                                                       /> 
                                     <PopularMovies PopularMovies={this.props.PopularMovies}/>
                                     <TopRatedMovies TopRatedMovies={this.props.TopRatedMovies}/>
                         </section>
@@ -187,6 +108,7 @@ class Main extends React.Component {
 
 const mapStateToProps= state=> {
     return{
+        configureApi: state.configure.configureApi,
         LatestMovies: state.movie.LatestMovies,
         UpcomingMovies: state.movie.UpcomingMovies,
         PopularMovies: state.movie.PopularMovies,
@@ -196,6 +118,7 @@ const mapStateToProps= state=> {
 
 const mapDispatchToProps= dispatch =>{
     return {
+        getConfigureApi: () => dispatch(fetchConfigureApi()),
         getLatestMovies: url => dispatch(fetchLatestMovies(url)),
         getUpcommingMovies: () => dispatch(fetchUpcomingMovies()),
         getPopularMovies: () => dispatch(fetchPopularMovies()),

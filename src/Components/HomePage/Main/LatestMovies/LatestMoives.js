@@ -19,7 +19,7 @@ export const LatestMovies= props =>{
             {props.LatestMovies.map( (item,i) =>{
                 return(
                     <section className='w3-display-container' key={`item_`+i}>
-                            <section id='background' className='imageMovies' style={{ backgroundImage: `url('https://image.tmdb.org/t/p/original/${item.poster_path}')`  }} ></section>
+                            <section id='background' className='imageMovies' style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w780/${item.poster_path}')`  }} ></section>
                             <section className="progress-bar w3-display-topleft" ></section>
                             
                             <section className='infoMovies w3-display-bottomleft '>

@@ -1,3 +1,5 @@
+import { CONFIGURE_API } from '../Actions/actionTypes'
+
 import { FETCH_LATEST_MOVIES } from '../Actions/actionTypes';
 import { FETCH_UPCOMING_MOVIES } from '../Actions/actionTypes';
 import { FETCH_POPULAR_MOVIES } from '../Actions/actionTypes';
@@ -9,6 +11,17 @@ import { FETCH_POPULAR_TVSHOWS } from '../Actions/actionTypes';
 import { FETCH_TOP_RATED_TVSHOWS } from '../Actions/actionTypes';
 
 const apiKey='f2e86216544164cf2009c966946ce960';
+
+export const fetchConfigureApi= () => dispatch=>{
+    fetch(`https://api.themoviedb.org/3/configuration?api_key=${apiKey}`)
+    .then(res=> res.json())
+    .then( item=>{
+        dispatch({
+            type: CONFIGURE_API,
+            payload: item.images
+        })
+    }).catch( error=> console.log(error));
+};
 
 export const fetchLatestMovies= url =>{
     return dispatch =>{
