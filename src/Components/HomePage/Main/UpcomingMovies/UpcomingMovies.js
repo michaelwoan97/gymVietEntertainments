@@ -16,7 +16,7 @@ export const UpcomingMovies= props =>{
                                     return(
                                         <section id='visibilityInfoMovies' className='infoMovies' key={`Movie_`+i}>
                                             <section className='w3-display-container w3-text-white containerImages'>
-                                                        <img src={`https://image.tmdb.org/t/p/original/${item.poster_path}`} />
+                                                        <img src={`https://image.tmdb.org/t/p/original/${item.poster_path}`} alt={item.overview} />
                                                         <section className="w3-display-topleft w3-container">
                                                             <span className="material-icons" style={{ color: '#3498db'}}>language</span>
                                                             <span style={{ textTransform: 'uppercase'}}>{item.original_language}</span>

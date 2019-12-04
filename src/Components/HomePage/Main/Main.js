@@ -1,13 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 
-import { createStore, applyMiddleware } from 'redux';
-import { Provider, connect} from 'react-redux';
-import thunk from 'redux-thunk';
+
+import { connect } from 'react-redux';
+
 import { fetchLatestMovies } from '../../../Actions/fetchActions';
 import { fetchUpcomingMovies } from '../../../Actions/fetchActions';
 import { fetchPopularMovies } from '../../../Actions/fetchActions';
 import { fetchTopRatedMovies } from '../../../Actions/fetchActions';
+
+import { fetchLatestTvShows } from '../../../Actions/fetchActions';
+import { fetchUpcomingTvShows } from '../../../Actions/fetchActions';
+import { fetchPopularTvShows } from '../../../Actions/fetchActions';
+import { fetchTopRatedTvShows } from '../../../Actions/fetchActions';
 
 import { movieDatabases } from '../Util/Tmdb';
 import { LatestMovies } from './LatestMovies/LatestMoives';
@@ -115,6 +120,8 @@ class Main extends React.Component {
 
 
     handleClickTv() {
+        this.props.getLatestTvShows(`https://api.themoviedb.org/3/tv/airing_today?api_key=${movieDatabases.apiKey}&language=en-US&page=1`);
+        this.props.getUpcommingTvShows(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${movieDatabases.apiKey}&language=en-US&page=1`);
         // Fetch TvShow datas
         movieDatabases.fetch(`https://api.themoviedb.org/3/tv/airing_today?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
             this.setState({
@@ -194,7 +201,7 @@ const mapStateToProps= state=> {
         LatestMovies: state.movie.LatestMovies,
         UpcomingMovies: state.movie.UpcomingMovies,
         PopularMovies: state.movie.PopularMovies,
-        TopRatedMovies: state.movie.TopRatedMovies
+        TopRatedMovies: state.movie.TopRatedMovies,
     };
 };
 
@@ -204,6 +211,11 @@ const mapDispatchToProps= dispatch =>{
         getUpcommingMovies: () => dispatch(fetchUpcomingMovies()),
         getPopularMovies: () => dispatch(fetchPopularMovies()),
         getTopRatedMovies: () => dispatch(fetchTopRatedMovies()),
+
+        getLatestTvShows: url => dispatch(fetchLatestTvShows(url)),
+        getUpcommingTvShows: url => dispatch(fetchUpcomingTvShows(url)),
+        getPopularTvShows: url => dispatch(fetchPopularTvShows(url)),
+        getTopRatedTvShows: url => dispatch(fetchTopRatedTvShows(url))
     }
 };
 

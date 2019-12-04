@@ -1,5 +1,5 @@
 import React from 'react';
-import { movieDatabases } from '../../Util/Tmdb';
+// import { movieDatabases } from '../../Util/Tmdb';
 import './LatestMovies.scss';
 // import sonTung from '../../../../Images/sonTung.jpg'
 
@@ -16,10 +16,10 @@ export const LatestMovies= props =>{
     return(
         <section id='LatestMovies' className="latestMovies">
             <section className='carouselLatestMovies'>
-            {props.LatestMovies.map( item =>{
+            {props.LatestMovies.map( (item,i) =>{
                 return(
-                    <section className='w3-display-container'>
-                            <section id='background' className='imageMovies' style={{ backgroundImage: `url('https://image.tmdb.org/t/p/original/${item.poster_path}')` }}></section>
+                    <section className='w3-display-container' key={`item_`+i}>
+                            <section id='background' className='imageMovies' style={{ backgroundImage: `url('https://image.tmdb.org/t/p/original/${item.poster_path}')`  }} ></section>
                             <section className="progress-bar w3-display-topleft" ></section>
                             
                             <section className='infoMovies w3-display-bottomleft '>
