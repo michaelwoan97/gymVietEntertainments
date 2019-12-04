@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { movieReducers, tvShowReducers } from '../Reducers/movieReducers';
+// import { movieReducers, tvShowReducers } from '../Reducers/movieReducers';
 
 import { fetchLatestMovies } from '../Actions/fetchActions';
 import { fetchUpcomingMovies } from '../Actions/fetchActions';
@@ -20,7 +21,7 @@ export default combineReducers({
     fetchPopularMovies,
     fetchTopRatedMovies,
 
-    tvShows: tvShowReducers,
+    // tvShows: tvShowReducers,
 
     fetchLatestTvShows,
     fetchUpcomingTvShows,

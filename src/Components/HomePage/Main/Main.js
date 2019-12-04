@@ -32,17 +32,7 @@ class Main extends React.Component {
         // this.handleGenre=this.handleGenre.bind(this);
         this.handleClickTv=this.handleClickTv.bind(this);
         this.handleClickMovies=this.handleClickMovies.bind(this);
-        this.state={
-            LatestMovies:[],
-            // movieLists:[],
-            UpcomingMovies: [],
-            PopularMovies: [],
-            TopRatedMovies: [],
-            LastestTvShows:[],
-            UpcomingTvShows: [],
-            PopularTvshows: [],
-            TopRatedTvshows: [],
-        };
+        this.state={};
     }
 
     componentDidMount() {
@@ -51,12 +41,12 @@ class Main extends React.Component {
         this.props.getPopularMovies();
         this.props.getTopRatedMovies();
         // fetch Movie datas
-        movieDatabases.fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then(res =>{
-            this.setState({
-                LatestMovies: res.results,
+        // movieDatabases.fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then(res =>{
+        //     this.setState({
+        //         LatestMovies: res.results,
              
-            })
-        });
+        //     })
+        // });
         
         // movieDatabases.fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`).then(res =>{
         //     this.setState({
@@ -77,23 +67,23 @@ class Main extends React.Component {
         //     console.log(this.state.movieList)
         // });
 
-        movieDatabases.fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then(res =>{
-            this.setState({
-                UpcomingMovies: res.results
-            })
-        });
+        // movieDatabases.fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then(res =>{
+        //     this.setState({
+        //         UpcomingMovies: res.results
+        //     })
+        // });
 
-        movieDatabases.fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then(res =>{
-            this.setState({
-                PopularMovies: res.results
-            })
-        });
+        // movieDatabases.fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then(res =>{
+        //     this.setState({
+        //         PopularMovies: res.results
+        //     })
+        // });
 
-        movieDatabases.fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then(res =>{
-            this.setState({
-                TopRatedMovies: res.results
-            })
-        });
+        // movieDatabases.fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then(res =>{
+        //     this.setState({
+        //         TopRatedMovies: res.results
+        //     })
+        // });
         
         // fetch TvShows data
         // movieDatabases.fetch(`https://api.themoviedb.org/3/tv/airing_today?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
@@ -121,28 +111,30 @@ class Main extends React.Component {
 
     handleClickTv() {
         this.props.getLatestTvShows(`https://api.themoviedb.org/3/tv/airing_today?api_key=${movieDatabases.apiKey}&language=en-US&page=1`);
-        this.props.getUpcommingTvShows(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${movieDatabases.apiKey}&language=en-US&page=1`);
+        this.props.getUpcomingTvShows(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${movieDatabases.apiKey}&language=en-US&page=1`);
+        this.props.getPopularTvShows(`https://api.themoviedb.org/3/tv/popular?api_key=${movieDatabases.apiKey}&language=en-US&page=1`);
+        this.props.getTopRatedTvShows(`https://api.themoviedb.org/3/tv/top_rated?api_key=${movieDatabases.apiKey}&language=en-US&page=1`);
         // Fetch TvShow datas
-        movieDatabases.fetch(`https://api.themoviedb.org/3/tv/airing_today?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
-            this.setState({
-                LatestMovies: res.results
-            })
-        })
-        movieDatabases.fetch(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
-            this.setState({
-                UpcomingMovies: res.results
-            })
-        })
-        movieDatabases.fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
-            this.setState({
-                PopularMovies: res.results
-            })
-        })
-        movieDatabases.fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
-            this.setState({
-                TopRatedMovies: res.results
-            })
-        })
+        // movieDatabases.fetch(`https://api.themoviedb.org/3/tv/airing_today?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
+        //     this.setState({
+        //         LatestMovies: res.results
+        //     })
+        // })
+        // movieDatabases.fetch(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
+        //     this.setState({
+        //         UpcomingMovies: res.results
+        //     })
+        // })
+        // movieDatabases.fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
+        //     this.setState({
+        //         PopularMovies: res.results
+        //     })
+        // })
+        // movieDatabases.fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=${movieDatabases.apiKey}&language=en-US&page=1`).then( res => {
+        //     this.setState({
+        //         TopRatedMovies: res.results
+        //     })
+        // })
         //
 
         document.getElementById('LatestMovies').className="latestMovies latestTvShows";
@@ -174,24 +166,21 @@ class Main extends React.Component {
     // }
    
     render() {
-        // const store= createStore(() =>[], {},applyMiddleware(thunk))
         return(
-            // <Provider store={store}>
-                    <main>
-                            <LatestMovies LatestMovies={this.state.LatestMovies} 
+            <main>
+                    <LatestMovies LatestMovies={this.props.LatestMovies} 
                                             />
-                            <section className='movies'>
+                    <section className='movies'>
                                 <section className='button'>
                                             <button className='button__movies' onClick={this.handleClickMovies} type='button'>MOVIES</button>
                                             <button className='button__tvShow' onClick={this.handleClickTv} type='button'>TV SHOW</button>
                                     </section>
-                                    <UpcomingMovies  UpcomingMovies={this.state.UpcomingMovies}/> 
-                                    <PopularMovies PopularMovies={this.state.PopularMovies}/>
-                                    <TopRatedMovies TopRatedMovies={this.state.TopRatedMovies}/>
-                            </section>
+                                    <UpcomingMovies  UpcomingMovies={this.props.UpcomingMovies}/> 
+                                    <PopularMovies PopularMovies={this.props.PopularMovies}/>
+                                    <TopRatedMovies TopRatedMovies={this.props.TopRatedMovies}/>
+                        </section>
 
-                    </main>
-                // </Provider>
+                </main>
         );
     }
 }
@@ -213,7 +202,7 @@ const mapDispatchToProps= dispatch =>{
         getTopRatedMovies: () => dispatch(fetchTopRatedMovies()),
 
         getLatestTvShows: url => dispatch(fetchLatestTvShows(url)),
-        getUpcommingTvShows: url => dispatch(fetchUpcomingTvShows(url)),
+        getUpcomingTvShows: url => dispatch(fetchUpcomingTvShows(url)),
         getPopularTvShows: url => dispatch(fetchPopularTvShows(url)),
         getTopRatedTvShows: url => dispatch(fetchTopRatedTvShows(url))
     }
