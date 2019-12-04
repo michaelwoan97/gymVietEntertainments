@@ -36,17 +36,16 @@ main{
             overflow: hidden;
             .carouselMovies{
                 display:grid;
-                grid-template-columns:repeat(3, 1fr);
+                grid-template-columns:repeat(3, 9rem);
                 // grid-template-rows: 20rem ;
-                grid-column-gap: 10px;
-                
+                grid-column-gap: 5px;
                 .containerImages{
-                    width:40vw;
+                    // width:40vw;
                     height:20vh;
                     overflow: hidden;
                     img{ 
-                        max-width:100%;
-                        height: auto;
+                        max-height:100%;
+                        width: auto;
                     }
                     .w3-container{
                         margin-top:1rem;
