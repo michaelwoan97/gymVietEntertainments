@@ -35,7 +35,7 @@ export const TopRatedMovies= props =>{
                        
                         
                         <section className='swipeWraper'>
-                                <button><i className='fas fa-angle-left'></i></button>
+                                <button><i className='fas fa-angle-left '></i></button>
                                 <button><i className='fas fa-angle-right'></i></button>
                             </section>
                             

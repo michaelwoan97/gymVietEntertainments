@@ -48,3 +48,4 @@ export const UpcomingMovies= props =>{
                   
         </section>
     );
+}

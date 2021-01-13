@@ -6,7 +6,7 @@ class Header extends React.Component {
         return (
             <header>
                     <nav>
-                            <i className="material-icons">menu</i>
+                            {/* <i className="material-icons">menu</i> */}
                     </nav>
             </header>
         );
